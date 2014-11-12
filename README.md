@@ -15,26 +15,29 @@ Your job is to prorotype a Product+Cart module for iPhone using ABC WD's API fou
 Here's what your application must do:
 
 1. list a set of products from the API 
-2. sdd a product to a shopping cart
-3. remove a product from a shopping cart
-4. update the quanity on a product in a shopping cart
-5. allow the user to switch between a products view and a shopping cart
-6. have a "procees to payment" button on cart which validates the shopping cart and moves to a payment screen.
-7. payment screen shows a raw json dump of the shopping card
-8. leverage UIKit/3rd party libraries as much as possible
+2. view a product and any relevant details
+3. add a product to a shopping cart
+4. remove a product from a shopping cart
+5. update the quanity on a product in a shopping cart
+6. allow the user to switch between the products view and the shopping cart
+7. have a "Proceed to Payment" button on cart which validates the shopping cart and moves to a payment screen.
+8. payment screen shows a raw json dump of the shopping card
+9. leverage UIKit/3rd party libraries as much as possible
+10. handle any API/Cart validation errors
 
 Your application does not need to:
 
 1. handle authentication or authorization 
 2. be aesthetically pleasing
-3. handle payment processing
-4. handle shipping
+3. handle processing a payment or any further checkout functionality
 
-Your application should be easy to set up and should run on iOS 8.0 or later.  It should not require any for-pay software.
+Your application should be easy to set up and run on iOS 8.0 or later on the simulator.  It should not require any for-pay software.
 
 ## Evaluation
-Evaluation of your submission will be based on the following criteria. Additionally, reviewers will attempt to assess your familiarity with standard libraries. Reviewers will assess your experience with object-oriented programming based on how you've structured your submission.
+Evaluation of your submission will be based on the following criteria. 
 
 1. Did your application fulfill the basic requirements?
 1. Did you document the method for setting up and running your application?
 1. Did you follow the instructions for submission?
+
+Additionally, reviewers will attempt to assess your familiarity with standard libraries. Reviewers will also assess your experience with object-oriented programming based on how you've structured your submission.
