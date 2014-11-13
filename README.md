@@ -26,7 +26,7 @@ Here's what your application must do:
 1. Update the quantity on a product in a shopping cart.
 1. Allow the user to switch between the products view and the shopping cart.
 1. Have a "Proceed to Payment" button on cart which validates the shopping cart and moves to a payment screen.
-1. Payment screen shows a raw JSON dump of the shopping card.
+1. Payment screen shows a raw JSON dump of the shopping cart.
 1. Handle any API/Cart validation errors.
 
 Your application does not need to:
