@@ -1,15 +1,13 @@
 # SALIDO iOS Challenge
-To better assess a candidates development skills, we provide this following challenge.  You have as much time as you'd like (though we ask that you not spend more than a few hours).
+This challenge is intended to get a better idea of a SALIDO candidate's coding style and development process. There is no hard time limit, but we ask that you send in your solution promptly.
 
 ## Submission Instructions
-1. First, fork this project on Github.  You will need to create an account if you don't already have one.
-1. Next, complete the project as described below within your fork.
-1. Finally, push all of your changes to your fork on Github and submit a pull request.  You should also email the appropriate address at Salido and your recruiter to let them know you have submitted a solution.  Make sure to include your Github username in your email (so we can match people with pull requests).
-1. Include in your README any assumptions your code is based on, instructions for running the app (if any), or any other information you want to communicate.
+1. Fork this project. If you don't already have a github account, you will need one.
+2. Complete the project according to the provided requirements
+3. Push all changes to your fork and submit a pull request to this project. Email the SALIDO employee that interviewed you to let them know the challenge was submitted.
+4. In your README, give us a brief explanation of how you approached the problem and assumptions you made. If there are any setup steps we need before running your code, list them here.
 
-## Alternate Submission Instructions (if you don't want to publicize completing the challenge)
-1. Clone the repository.
-1. Next, complete your project as described below within your local repository.
-1. Email a patch file to the appropriate address at Salido and your recruiter to let them know you have submitted a solution.
+## Context
+	Imagine SALIDO has just acquired a wine distribution company. We need to source product data from the wine.com API (http://api.wine.com) and load it into our own database of wine products.
 
 ## Project Description
