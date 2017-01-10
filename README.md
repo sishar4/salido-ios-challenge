@@ -48,4 +48,15 @@ Imagine SALIDO has just acquired a wine distribution company. We need to source 
 	- The total of all item quantities should be present somewhere on the screen.
 	- The screen should allow the user to return to the item list.
 	- The user should be allowed to remove items from the cart.
-	- The item detail screen should also be accessible from the shopping cart
+	- The item detail screen should also be accessible from the shopping 
+5. Upon checking out, the user should be presented with a confirmation or "Thank You" screen as well as the option to start a new order.
+6. Throughout the app, the user should:
+	- Be able to log out
+7. The app must be written in Objective-C.
+
+- Extra credit:
+- add a "Forgot Your Pin" feature using the email address as lookup. If no email was given respond with an appropriate error message.
+- enforce unique employees
+- allow the user to limit search filter to alcoholic or non-alcoholic drinks. by default, it should allow both alcoholic and non-alcoholic until the user makes a selection.
+- implementing a live updating shopping cart interface
+- allow access to a list of all employees and the amount of time they've been employed at the SALIDO Wine Club.
