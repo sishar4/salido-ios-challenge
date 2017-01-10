@@ -8,6 +8,6 @@ This challenge is intended to get a better idea of a SALIDO candidate's coding s
 4. In your README, give us a brief explanation of how you approached the problem and assumptions you made. If there are any setup steps we need before running your code, list them here.
 
 ## Context
-	Imagine SALIDO has just acquired a wine distribution company. We need to source product data from the wine.com API (http://api.wine.com) and load it into our own database of wine products.
+Imagine SALIDO has just acquired a wine distribution company. We need to source product data from the wine.com API (http://api.wine.com) and load it into our own database of wine products.
 
 ## Project Description
