@@ -18,8 +18,34 @@ Imagine SALIDO has just acquired a wine distribution company. We need to source 
 
 ## Requirements
 1. Upon app start, the user should be prompted to sign in using a pin or to create a new employee
-- A user must consist of:
-	1. a pin code
-	2. a first name
-	3. a last name
-	4. a valid email address (optional)
+	- A user must consist of:
+		1. a pin code
+		2. a first name
+		3. a last name
+		4. a valid email address (optional)
+	- An error prompt must appear if an invalid pin is entered (not the right format or isn't assigned to anyone)
+2. Upon logging in, the user should be presented with a list of unfiltered cocktails and drinks sourced from the Wine.com API
+	- The user should be able to filter items by name, ingredient, etc.
+	- The items in the list presented should display an image of the item and the item name.
+	- The user should be able to quickly add an item to their shopping cart and set the quantity from this screen.
+	- If the API is unreachable (no internet) an error should be displayed. The user should be given an option to retry the API call.
+	- If the user returns to this screen after traveling to a different screen, the search query, results, and filters should be in the same state that they were left in.
+3. Upon selecting an item from the list, the user should be taken to an item detail screen.
+	- The item detail screen should display an image of the item and the item's name
+	- The item detail screen should display the item's description as returned from the API, as well as any directions for creating the cocktail.
+	- The item detail screen should allow the user to add the item to their shopping cart and set the quantity.
+
+4. Upon moving to the shopping cart screen, the user should be shown a list of items that were selected.
+	- Items in the list should display the item image, item name, and quantity bought
+	- Items should be displayed in the order they were added to the cart.
+		- If multiple instances of the same item are added, but at different points, the item should appear in the position that the first instance was added, but the quantity should be grouped. For example:
+			- Item A was added with quantity 1.
+			- Item B was added with quantity 2.
+			- Another instance of item A was added with quantity 4.
+			- The expected outcome is:
+				- Item A, Qty 5
+				- Item B, Qty 2
+	- The total of all item quantities should be present somewhere on the screen.
+	- The screen should allow the user to return to the item list.
+	- The user should be allowed to remove items from the cart.
+	- The item detail screen should also be accessible from the shopping cart
