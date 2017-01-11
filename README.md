@@ -31,6 +31,7 @@ Imagine SALIDO has expanded its reach into the wine industry with the new "SALID
 	- The items in the list presented should display an image of the item and the item name.
 	- If the API is unreachable (no internet) an error should be displayed. The user should be given an option to retry the API call.
 	- If the user returns to this screen after traveling to a different screen, the search query, results, and filters should be in the same state that they were left in.
+	- The user should be able to quickly add an item to their cart from this screen, without entering the item's detail screen.
 3. Upon selecting an item from the list, the user should be taken to an item detail screen.
 	- The item detail screen should display an image of the item and the item's name
 	- The item detail screen should display the item's description as returned from the API.
@@ -42,10 +43,10 @@ Imagine SALIDO has expanded its reach into the wine industry with the new "SALID
 	- The total of all item quantities should be present somewhere on the screen.
 	- The screen should allow the user to return to the main catalogue of items.
 	- The user should be allowed to remove items from the cart.
-	- The item detail screen should also be accessible from the shopping cart screen.
+	- The item detail screen should also be accessible from the shopping cart screen by selecting an item.
 5. Upon checking out, the user should be presented with a confirmation or "Thank You" screen as well as the option to start a new order.
 6. The user should be able to log out at any point in time.
-7. Objective-C is preferred, but you can write the app in Swift if you want to.
+7. The user should be able to access their shopping cart at any time.
 
 ## Extra credit
 - add a "Forgot Your Pin" feature using the email address as lookup. If no email was given respond with an appropriate error message.
@@ -59,7 +60,6 @@ Imagine SALIDO has expanded its reach into the wine industry with the new "SALID
 	- The expected outcome is:
 		- Item A, Qty 5
 		- Item B, Qty 2
-- implement a "quick add" feature from the catalogue screen. It should allow the user to quickly add an item from the catalogue and set a quantity without ever hitting its detail page.
 - surprise us! implement a feature of the API in a way we haven't mentioned or suggested
 
 ## Other Notes
@@ -71,6 +71,7 @@ Imagine SALIDO has expanded its reach into the wine industry with the new "SALID
 
 - You can:
 	- Use (free) 3rd party frameworks, if needed.
+	- Write in Swift if you wish. Objective-C is preferred.
 
 - Evaluation:
 	We are judging your work based on the following criteria:
