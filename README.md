@@ -26,10 +26,9 @@ Imagine SALIDO has expanded its reach into the wine industry with the new "SALID
 		3. a last name
 		4. a valid email address (optional)
 	- An error prompt must appear if an invalid pin is entered (not the right format or isn't assigned to anyone)
-2. Upon logging in, the user should be presented with a list of unfiltered cocktails and drinks sourced from the wine.com API
-	- The user should be able to filter items by name, ingredient, etc.
+2. Upon logging in, the user should be presented with a list of wines sourced from the wine.com API
+	- The user should be able to filter items by name, location, etc.
 	- The items in the list presented should display an image of the item and the item name.
-	- The user should be able to quickly add an item to their shopping cart and set the quantity from this screen.
 	- If the API is unreachable (no internet) an error should be displayed. The user should be given an option to retry the API call.
 	- If the user returns to this screen after traveling to a different screen, the search query, results, and filters should be in the same state that they were left in.
 3. Upon selecting an item from the list, the user should be taken to an item detail screen.
@@ -43,7 +42,7 @@ Imagine SALIDO has expanded its reach into the wine industry with the new "SALID
 	- The total of all item quantities should be present somewhere on the screen.
 	- The screen should allow the user to return to the main catalogue of items.
 	- The user should be allowed to remove items from the cart.
-	- The item detail screen should also be accessible from the shopping 
+	- The item detail screen should also be accessible from the shopping cart screen.
 5. Upon checking out, the user should be presented with a confirmation or "Thank You" screen as well as the option to start a new order.
 6. The user should be able to log out at any point in time.
 7. Objective-C is preferred, but you can write the app in Swift if you want to.
@@ -60,6 +59,7 @@ Imagine SALIDO has expanded its reach into the wine industry with the new "SALID
 	- The expected outcome is:
 		- Item A, Qty 5
 		- Item B, Qty 2
+- implement a "quick add" feature from the catalogue screen. It should allow the user to quickly add an item from the catalogue and set a quantity without ever hitting its detail page.
 
 ## Other Notes
 - You do not need to:
