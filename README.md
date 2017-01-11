@@ -1,6 +1,8 @@
 # SALIDO iOS Challenge
 This challenge is intended to get a better idea of a SALIDO candidate's coding style and development process. There is no hard time limit, but we ask that you send in your solution promptly.
 
+Please feel free to use the developer reviewing your work as a resource. If any points seem vague or need clarifying, they will be there to help.
+
 ## Submission Instructions
 1. Fork this project. If you don't already have a github account, you will need one.
 2. Complete the project according to the provided requirements
