@@ -54,9 +54,26 @@ Imagine SALIDO has just acquired a wine distribution company. We need to source 
 	- Be able to log out
 7. The app must be written in Objective-C.
 
-- Extra credit:
+## Extra credit
 - add a "Forgot Your Pin" feature using the email address as lookup. If no email was given respond with an appropriate error message.
 - enforce unique employees
 - allow the user to limit search filter to alcoholic or non-alcoholic drinks. by default, it should allow both alcoholic and non-alcoholic until the user makes a selection.
 - implementing a live updating shopping cart interface
 - allow access to a list of all employees and the amount of time they've been employed at the SALIDO Wine Club.
+
+- You do not need to:
+	- Save an order or session if the app enters the background. If the user presses the home button, just log them out and present the login screen when the app is launched again.
+	- Handle payment. Assume all items are free.
+	- Have fancy UI. You can make the interface as barebones as you'd like.
+	- Account for screen rotation.
+
+- You can:
+	- Use (free) 3rd party frameworks, if needed.
+
+- Evaluation
+	Evaluation is based on the following criteria:
+	- Did you complete all of the base requirements
+	- Did you follow standard coding practices and use an appropriate programming paradigm for iOS development
+	- Did you properly submit the project
+	- Did you use the appropriate iOS/3rd party libraries
+	- Did you write your code in an easy to digest way?
