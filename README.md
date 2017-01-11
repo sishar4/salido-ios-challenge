@@ -72,8 +72,8 @@ Imagine SALIDO has expanded its reach into the wine industry with the new "SALID
 - You can:
 	- Use (free) 3rd party frameworks, if needed.
 
-- Evaluation
-	Evaluation is based on the following criteria:
+- Evaluation:
+	We are judging your work based on the following criteria:
 	- Did you complete all of the base requirements?
 	- Did you follow standard coding practices and use an appropriate programming paradigm for iOS development?
 	- Did you properly submit the project?
