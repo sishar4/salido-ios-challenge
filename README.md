@@ -49,7 +49,7 @@ Imagine SALIDO has just acquired a wine distribution company. We need to source 
 ## Extra credit
 - add a "Forgot Your Pin" feature using the email address as lookup. If no email was given respond with an appropriate error message.
 - enforce unique employees
-- allow the user to limit search filter to alcoholic or non-alcoholic drinks. by default, it should show both alcoholic and non-alcoholic drinks until the user makes a selection.
+- allow the user to further limit search filter to alcoholic or non-alcoholic drinks. by default, it should show both alcoholic and non-alcoholic drinks until the user makes a selection.
 - implementing a live updating shopping cart interface
 - allow access to a list of all employees and the amount of time they've been employed at the SALIDO Wine Club.
 - If multiple instances of the same item are added, but at different points, the item should appear in the position that the first instance was added, but the quantity should be grouped. For example:
