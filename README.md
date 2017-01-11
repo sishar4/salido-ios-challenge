@@ -38,13 +38,6 @@ Imagine SALIDO has just acquired a wine distribution company. We need to source 
 4. Upon moving to the shopping cart screen, the user should be shown a list of items that were selected.
 	- Items in the list should display the item image, item name, and quantity bought
 	- Items should be displayed in the order they were added to the cart.
-		- If multiple instances of the same item are added, but at different points, the item should appear in the position that the first instance was added, but the quantity should be grouped. For example:
-			- Item A was added with quantity 1.
-			- Item B was added with quantity 2.
-			- Another instance of item A was added with quantity 4.
-			- The expected outcome is:
-				- Item A, Qty 5
-				- Item B, Qty 2
 	- The total of all item quantities should be present somewhere on the screen.
 	- The screen should allow the user to return to the item list.
 	- The user should be allowed to remove items from the cart.
@@ -60,6 +53,14 @@ Imagine SALIDO has just acquired a wine distribution company. We need to source 
 - allow the user to limit search filter to alcoholic or non-alcoholic drinks. by default, it should allow both alcoholic and non-alcoholic until the user makes a selection.
 - implementing a live updating shopping cart interface
 - allow access to a list of all employees and the amount of time they've been employed at the SALIDO Wine Club.
+- If multiple instances of the same item are added, but at different points, the item should appear in the position that the first instance was added, but the quantity should be grouped. For example:
+	- Item A was added with quantity 1.
+	- Item B was added with quantity 2.
+	- Another instance of item A was added with quantity 4.
+	- The expected outcome is:
+		- Item A, Qty 5
+		- Item B, Qty 2
+
 
 - You do not need to:
 	- Save an order or session if the app enters the background. If the user presses the home button, just log them out and present the login screen when the app is launched again.
