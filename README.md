@@ -27,7 +27,10 @@ Imagine SALIDO has expanded its reach into the wine industry with the new "SALID
 		4. a valid email address (optional)
 	- An error prompt must appear if an invalid pin is entered (not the right format or isn't assigned to anyone)
 2. Upon logging in, the user should be presented with a list of wines sourced from the wine.com API
-	- The user should be able to filter items by name, location, etc.
+	- The user should be able to filter items by a few fields, at minimum:
+		- Name
+		- Category (for example, red wine, cabernet, etc. You can find examples in the docs for the API)
+		- Winery
 	- The items in the list presented should display an image of the item and the item name.
 	- If the API is unreachable (no internet) an error should be displayed. The user should be given an option to retry the API call.
 	- If the user returns to this screen after traveling to a different screen, the search query, results, and filters should be in the same state that they were left in.
@@ -51,7 +54,7 @@ Imagine SALIDO has expanded its reach into the wine industry with the new "SALID
 ## Extra credit
 - add a "Forgot Your Pin" feature using the email address as lookup. If no email was given respond with an appropriate error message.
 - enforce unique employees
-- implementing a live updating shopping cart interface
+- implement a live updating shopping cart interface
 - allow access to a list of all employees and the amount of time they've been employed at the SALIDO Wine Club.
 - If multiple instances of the same item are added, but at different points, the item should appear in the position that the first instance was added, but the quantity should be grouped. For example:
 	- Item A was added with quantity 1.
