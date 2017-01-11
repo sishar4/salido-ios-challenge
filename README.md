@@ -18,13 +18,13 @@ Imagine SALIDO has just acquired a wine distribution company. We need to source 
 
 ## Requirements
 1. Upon app start, the user should be prompted to sign in using a pin or to create a new employee
-	- A user must consist of:
+	- A user should have (at minimum) the following attributes:
 		1. a pin code
 		2. a first name
 		3. a last name
 		4. a valid email address (optional)
 	- An error prompt must appear if an invalid pin is entered (not the right format or isn't assigned to anyone)
-2. Upon logging in, the user should be presented with a list of unfiltered cocktails and drinks sourced from the Wine.com API
+2. Upon logging in, the user should be presented with a list of unfiltered cocktails and drinks sourced from the wine.com API
 	- The user should be able to filter items by name, ingredient, etc.
 	- The items in the list presented should display an image of the item and the item name.
 	- The user should be able to quickly add an item to their shopping cart and set the quantity from this screen.
@@ -39,31 +39,30 @@ Imagine SALIDO has just acquired a wine distribution company. We need to source 
 	- Items in the list should display the item image, item name, and quantity bought
 	- Items should be displayed in the order they were added to the cart.
 	- The total of all item quantities should be present somewhere on the screen.
-	- The screen should allow the user to return to the item list.
+	- The screen should allow the user to return to the main catalogue of items.
 	- The user should be allowed to remove items from the cart.
 	- The item detail screen should also be accessible from the shopping 
 5. Upon checking out, the user should be presented with a confirmation or "Thank You" screen as well as the option to start a new order.
-6. Throughout the app, the user should:
-	- Be able to log out
-7. The app must be written in Objective-C.
+6. The user should be able to log out at any point in time.
+7. Objective-C is preferred, but you can write the app in Swift if you want to.
 
 ## Extra credit
 - add a "Forgot Your Pin" feature using the email address as lookup. If no email was given respond with an appropriate error message.
 - enforce unique employees
-- allow the user to limit search filter to alcoholic or non-alcoholic drinks. by default, it should allow both alcoholic and non-alcoholic until the user makes a selection.
+- allow the user to limit search filter to alcoholic or non-alcoholic drinks. by default, it should show both alcoholic and non-alcoholic drinks until the user makes a selection.
 - implementing a live updating shopping cart interface
 - allow access to a list of all employees and the amount of time they've been employed at the SALIDO Wine Club.
 - If multiple instances of the same item are added, but at different points, the item should appear in the position that the first instance was added, but the quantity should be grouped. For example:
 	- Item A was added with quantity 1.
 	- Item B was added with quantity 2.
-	- Another instance of item A was added with quantity 4.
+	- Another instance of item A was added, but with a quantity of 4.
 	- The expected outcome is:
 		- Item A, Qty 5
 		- Item B, Qty 2
 
-
+## Other Notes
 - You do not need to:
-	- Save an order or session if the app enters the background. If the user presses the home button, just log them out and present the login screen when the app is launched again.
+	- Save an order or session if the app enters the background. If the user presses the home button, you can just log them out and present the login screen when the app is launched again.
 	- Handle payment. Assume all items are free.
 	- Have fancy UI. You can make the interface as barebones as you'd like.
 	- Account for screen rotation.
@@ -73,8 +72,8 @@ Imagine SALIDO has just acquired a wine distribution company. We need to source 
 
 - Evaluation
 	Evaluation is based on the following criteria:
-	- Did you complete all of the base requirements
-	- Did you follow standard coding practices and use an appropriate programming paradigm for iOS development
-	- Did you properly submit the project
-	- Did you use the appropriate iOS/3rd party libraries
-	- Did you write your code in an easy to digest way?
+	- Did you complete all of the base requirements?
+	- Did you follow standard coding practices and use an appropriate programming paradigm for iOS development?
+	- Did you properly submit the project?
+	- Did you use iOS and 3rd party frameworks in an appropriate way?
+	- Is your code "self-documenting"? 
