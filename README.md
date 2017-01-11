@@ -60,6 +60,7 @@ Imagine SALIDO has expanded its reach into the wine industry with the new "SALID
 		- Item A, Qty 5
 		- Item B, Qty 2
 - implement a "quick add" feature from the catalogue screen. It should allow the user to quickly add an item from the catalogue and set a quantity without ever hitting its detail page.
+- surprise us! implement a feature of the API in a way we haven't mentioned or suggested
 
 ## Other Notes
 - You do not need to:
