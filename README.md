@@ -14,7 +14,7 @@ This challenge is intended to get a better idea of a SALIDO candidate's coding s
 4. You can take a set of business requirements from end-to-end, keeping in mind how the user will interact with the final product.
 
 ## Context
-Imagine SALIDO has just acquired a wine distribution company. We need to source product data from the wine.com API (http://api.wine.com) and load it into our own database of wine products.
+Imagine SALIDO has expanded its reach into the wine industry with the new "SALIDO Wine Club". We need to source product data from the wine.com API (http://api.wine.com) and load it into our own database of wine products.
 
 ## Requirements
 1. Upon app start, the user should be prompted to sign in using a pin or to create a new employee
@@ -32,7 +32,7 @@ Imagine SALIDO has just acquired a wine distribution company. We need to source 
 	- If the user returns to this screen after traveling to a different screen, the search query, results, and filters should be in the same state that they were left in.
 3. Upon selecting an item from the list, the user should be taken to an item detail screen.
 	- The item detail screen should display an image of the item and the item's name
-	- The item detail screen should display the item's description as returned from the API, as well as any directions for creating the cocktail.
+	- The item detail screen should display the item's description as returned from the API.
 	- The item detail screen should allow the user to add the item to their shopping cart and set the quantity.
 
 4. Upon moving to the shopping cart screen, the user should be shown a list of items that were selected.
@@ -49,7 +49,6 @@ Imagine SALIDO has just acquired a wine distribution company. We need to source 
 ## Extra credit
 - add a "Forgot Your Pin" feature using the email address as lookup. If no email was given respond with an appropriate error message.
 - enforce unique employees
-- allow the user to further limit search filter to alcoholic or non-alcoholic drinks. by default, it should show both alcoholic and non-alcoholic drinks until the user makes a selection.
 - implementing a live updating shopping cart interface
 - allow access to a list of all employees and the amount of time they've been employed at the SALIDO Wine Club.
 - If multiple instances of the same item are added, but at different points, the item should appear in the position that the first instance was added, but the quantity should be grouped. For example:
