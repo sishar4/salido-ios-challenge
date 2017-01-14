@@ -1,0 +1,608 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FA3E01F71E29E96000F84DAB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3E01F61E29E96000F84DAB /* main.m */; };
+		FA3E01FA1E29E96000F84DAB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3E01F91E29E96000F84DAB /* AppDelegate.m */; };
+		FA3E02021E29E96000F84DAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA3E02011E29E96000F84DAB /* Assets.xcassets */; };
+		FA3E02051E29E96000F84DAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3E02031E29E96000F84DAB /* LaunchScreen.storyboard */; };
+		FA3E02101E29E96000F84DAB /* SalidoWineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3E020F1E29E96000F84DAB /* SalidoWineTests.m */; };
+		FA3E02241E29EB1000F84DAB /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3E02231E29EB1000F84DAB /* Authentication.storyboard */; };
+		FA3E022D1E29EB7D00F84DAB /* SWShoppingCart.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3E022C1E29EB7D00F84DAB /* SWShoppingCart.m */; };
+		FA3E02301E29EB9800F84DAB /* SWUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3E022F1E29EB9800F84DAB /* SWUser.m */; };
+		FA3E02351E29EC5D00F84DAB /* SWLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3E02341E29EC5D00F84DAB /* SWLoginViewController.m */; };
+		FA3E02381E29EC7100F84DAB /* SWRegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3E02371E29EC7100F84DAB /* SWRegistrationViewController.m */; };
+		FA3E023D1E29ED1900F84DAB /* SWCatalogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3E023C1E29ED1900F84DAB /* SWCatalogViewController.m */; };
+		FA3E02401E29ED2600F84DAB /* SWProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3E023F1E29ED2600F84DAB /* SWProductDetailViewController.m */; };
+		FA3E02421E29ED6100F84DAB /* Checkout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3E02411E29ED6100F84DAB /* Checkout.storyboard */; };
+		FA3E02461E29EDC300F84DAB /* SWCartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3E02451E29EDC300F84DAB /* SWCartViewController.m */; };
+		FA3E024A1E29EDF900F84DAB /* SWPurchaseConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3E02491E29EDF900F84DAB /* SWPurchaseConfirmationViewController.m */; };
+		FA3E024E1E29EEA800F84DAB /* SWProductDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3E024D1E29EEA800F84DAB /* SWProductDetailViewController.xib */; };
+		FA3E02521E29F24600F84DAB /* SWFilterListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3E02511E29F24600F84DAB /* SWFilterListViewController.m */; };
+		FA3E02541E29F76F00F84DAB /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3E02531E29F76F00F84DAB /* Home.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FA3E020C1E29E96000F84DAB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA3E01EA1E29E95F00F84DAB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA3E01F11E29E95F00F84DAB;
+			remoteInfo = SalidoWine;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FA3E01F21E29E96000F84DAB /* SalidoWine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SalidoWine.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA3E01F61E29E96000F84DAB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FA3E01F81E29E96000F84DAB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FA3E01F91E29E96000F84DAB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FA3E02011E29E96000F84DAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FA3E02041E29E96000F84DAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FA3E02061E29E96000F84DAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA3E020B1E29E96000F84DAB /* SalidoWineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SalidoWineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA3E020F1E29E96000F84DAB /* SalidoWineTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SalidoWineTests.m; sourceTree = "<group>"; };
+		FA3E02111E29E96000F84DAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA3E02231E29EB1000F84DAB /* Authentication.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
+		FA3E022B1E29EB7D00F84DAB /* SWShoppingCart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWShoppingCart.h; sourceTree = "<group>"; };
+		FA3E022C1E29EB7D00F84DAB /* SWShoppingCart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWShoppingCart.m; sourceTree = "<group>"; };
+		FA3E022E1E29EB9800F84DAB /* SWUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWUser.h; sourceTree = "<group>"; };
+		FA3E022F1E29EB9800F84DAB /* SWUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWUser.m; sourceTree = "<group>"; };
+		FA3E02331E29EC5D00F84DAB /* SWLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWLoginViewController.h; sourceTree = "<group>"; };
+		FA3E02341E29EC5D00F84DAB /* SWLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWLoginViewController.m; sourceTree = "<group>"; };
+		FA3E02361E29EC7100F84DAB /* SWRegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRegistrationViewController.h; sourceTree = "<group>"; };
+		FA3E02371E29EC7100F84DAB /* SWRegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRegistrationViewController.m; sourceTree = "<group>"; };
+		FA3E023B1E29ED1900F84DAB /* SWCatalogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWCatalogViewController.h; sourceTree = "<group>"; };
+		FA3E023C1E29ED1900F84DAB /* SWCatalogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWCatalogViewController.m; sourceTree = "<group>"; };
+		FA3E023E1E29ED2600F84DAB /* SWProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWProductDetailViewController.h; sourceTree = "<group>"; };
+		FA3E023F1E29ED2600F84DAB /* SWProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWProductDetailViewController.m; sourceTree = "<group>"; };
+		FA3E02411E29ED6100F84DAB /* Checkout.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Checkout.storyboard; sourceTree = "<group>"; };
+		FA3E02441E29EDC300F84DAB /* SWCartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWCartViewController.h; sourceTree = "<group>"; };
+		FA3E02451E29EDC300F84DAB /* SWCartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWCartViewController.m; sourceTree = "<group>"; };
+		FA3E02481E29EDF900F84DAB /* SWPurchaseConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWPurchaseConfirmationViewController.h; sourceTree = "<group>"; };
+		FA3E02491E29EDF900F84DAB /* SWPurchaseConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWPurchaseConfirmationViewController.m; sourceTree = "<group>"; };
+		FA3E024D1E29EEA800F84DAB /* SWProductDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWProductDetailViewController.xib; sourceTree = "<group>"; };
+		FA3E02501E29F24600F84DAB /* SWFilterListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWFilterListViewController.h; sourceTree = "<group>"; };
+		FA3E02511E29F24600F84DAB /* SWFilterListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWFilterListViewController.m; sourceTree = "<group>"; };
+		FA3E02531E29F76F00F84DAB /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FA3E01EF1E29E95F00F84DAB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA3E02081E29E96000F84DAB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FA3E01E91E29E95F00F84DAB = {
+			isa = PBXGroup;
+			children = (
+				FA3E01F41E29E96000F84DAB /* SalidoWine */,
+				FA3E020E1E29E96000F84DAB /* SalidoWineTests */,
+				FA3E01F31E29E96000F84DAB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FA3E01F31E29E96000F84DAB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FA3E01F21E29E96000F84DAB /* SalidoWine.app */,
+				FA3E020B1E29E96000F84DAB /* SalidoWineTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FA3E01F41E29E96000F84DAB /* SalidoWine */ = {
+			isa = PBXGroup;
+			children = (
+				FA3E01F81E29E96000F84DAB /* AppDelegate.h */,
+				FA3E01F91E29E96000F84DAB /* AppDelegate.m */,
+				FA3E021A1E29E97F00F84DAB /* Authentication */,
+				FA3E021C1E29EA4E00F84DAB /* Home */,
+				FA3E021B1E29E99800F84DAB /* Checkout */,
+				FA3E02011E29E96000F84DAB /* Assets.xcassets */,
+				FA3E02061E29E96000F84DAB /* Info.plist */,
+				FA3E02031E29E96000F84DAB /* LaunchScreen.storyboard */,
+				FA3E01F51E29E96000F84DAB /* Supporting Files */,
+			);
+			path = SalidoWine;
+			sourceTree = "<group>";
+		};
+		FA3E01F51E29E96000F84DAB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FA3E01F61E29E96000F84DAB /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FA3E020E1E29E96000F84DAB /* SalidoWineTests */ = {
+			isa = PBXGroup;
+			children = (
+				FA3E020F1E29E96000F84DAB /* SalidoWineTests.m */,
+				FA3E02111E29E96000F84DAB /* Info.plist */,
+			);
+			path = SalidoWineTests;
+			sourceTree = "<group>";
+		};
+		FA3E021A1E29E97F00F84DAB /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				FA3E021D1E29EA6400F84DAB /* Models */,
+				FA3E02221E29EADA00F84DAB /* Views */,
+				FA3E02311E29EC3000F84DAB /* Login */,
+				FA3E02321E29EC3900F84DAB /* Registration */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		FA3E021B1E29E99800F84DAB /* Checkout */ = {
+			isa = PBXGroup;
+			children = (
+				FA3E022A1E29EB6000F84DAB /* Models */,
+				FA3E02291E29EB5B00F84DAB /* Views */,
+				FA3E02281E29EB5300F84DAB /* Cart */,
+			);
+			path = Checkout;
+			sourceTree = "<group>";
+		};
+		FA3E021C1E29EA4E00F84DAB /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FA3E02211E29EAB400F84DAB /* Models */,
+				FA3E02201E29EAA100F84DAB /* Views */,
+				FA3E02391E29ECED00F84DAB /* Catalog */,
+				FA3E023A1E29ECF200F84DAB /* ProductDetail */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		FA3E021D1E29EA6400F84DAB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FA3E022E1E29EB9800F84DAB /* SWUser.h */,
+				FA3E022F1E29EB9800F84DAB /* SWUser.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FA3E02201E29EAA100F84DAB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FA3E02531E29F76F00F84DAB /* Home.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FA3E02211E29EAB400F84DAB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FA3E02221E29EADA00F84DAB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FA3E02231E29EB1000F84DAB /* Authentication.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FA3E02281E29EB5300F84DAB /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				FA3E02441E29EDC300F84DAB /* SWCartViewController.h */,
+				FA3E02451E29EDC300F84DAB /* SWCartViewController.m */,
+				FA3E02481E29EDF900F84DAB /* SWPurchaseConfirmationViewController.h */,
+				FA3E02491E29EDF900F84DAB /* SWPurchaseConfirmationViewController.m */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
+		FA3E02291E29EB5B00F84DAB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FA3E02411E29ED6100F84DAB /* Checkout.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FA3E022A1E29EB6000F84DAB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FA3E022B1E29EB7D00F84DAB /* SWShoppingCart.h */,
+				FA3E022C1E29EB7D00F84DAB /* SWShoppingCart.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FA3E02311E29EC3000F84DAB /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				FA3E02331E29EC5D00F84DAB /* SWLoginViewController.h */,
+				FA3E02341E29EC5D00F84DAB /* SWLoginViewController.m */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		FA3E02321E29EC3900F84DAB /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				FA3E02361E29EC7100F84DAB /* SWRegistrationViewController.h */,
+				FA3E02371E29EC7100F84DAB /* SWRegistrationViewController.m */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		FA3E02391E29ECED00F84DAB /* Catalog */ = {
+			isa = PBXGroup;
+			children = (
+				FA3E024F1E29EEE100F84DAB /* Views */,
+				FA3E023B1E29ED1900F84DAB /* SWCatalogViewController.h */,
+				FA3E023C1E29ED1900F84DAB /* SWCatalogViewController.m */,
+				FA3E02501E29F24600F84DAB /* SWFilterListViewController.h */,
+				FA3E02511E29F24600F84DAB /* SWFilterListViewController.m */,
+			);
+			path = Catalog;
+			sourceTree = "<group>";
+		};
+		FA3E023A1E29ECF200F84DAB /* ProductDetail */ = {
+			isa = PBXGroup;
+			children = (
+				FA3E024C1E29EE9100F84DAB /* Views */,
+				FA3E023E1E29ED2600F84DAB /* SWProductDetailViewController.h */,
+				FA3E023F1E29ED2600F84DAB /* SWProductDetailViewController.m */,
+			);
+			path = ProductDetail;
+			sourceTree = "<group>";
+		};
+		FA3E024C1E29EE9100F84DAB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FA3E024D1E29EEA800F84DAB /* SWProductDetailViewController.xib */,
+			);
+			name = Views;
+			path = VIews;
+			sourceTree = "<group>";
+		};
+		FA3E024F1E29EEE100F84DAB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FA3E01F11E29E95F00F84DAB /* SalidoWine */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA3E02141E29E96000F84DAB /* Build configuration list for PBXNativeTarget "SalidoWine" */;
+			buildPhases = (
+				FA3E01EE1E29E95F00F84DAB /* Sources */,
+				FA3E01EF1E29E95F00F84DAB /* Frameworks */,
+				FA3E01F01E29E95F00F84DAB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SalidoWine;
+			productName = SalidoWine;
+			productReference = FA3E01F21E29E96000F84DAB /* SalidoWine.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FA3E020A1E29E96000F84DAB /* SalidoWineTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA3E02171E29E96000F84DAB /* Build configuration list for PBXNativeTarget "SalidoWineTests" */;
+			buildPhases = (
+				FA3E02071E29E96000F84DAB /* Sources */,
+				FA3E02081E29E96000F84DAB /* Frameworks */,
+				FA3E02091E29E96000F84DAB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FA3E020D1E29E96000F84DAB /* PBXTargetDependency */,
+			);
+			name = SalidoWineTests;
+			productName = SalidoWineTests;
+			productReference = FA3E020B1E29E96000F84DAB /* SalidoWineTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FA3E01EA1E29E95F00F84DAB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Sahil Ishar";
+				TargetAttributes = {
+					FA3E01F11E29E95F00F84DAB = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+					FA3E020A1E29E96000F84DAB = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = FA3E01F11E29E95F00F84DAB;
+					};
+				};
+			};
+			buildConfigurationList = FA3E01ED1E29E95F00F84DAB /* Build configuration list for PBXProject "SalidoWine" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FA3E01E91E29E95F00F84DAB;
+			productRefGroup = FA3E01F31E29E96000F84DAB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FA3E01F11E29E95F00F84DAB /* SalidoWine */,
+				FA3E020A1E29E96000F84DAB /* SalidoWineTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FA3E01F01E29E95F00F84DAB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA3E02421E29ED6100F84DAB /* Checkout.storyboard in Resources */,
+				FA3E02241E29EB1000F84DAB /* Authentication.storyboard in Resources */,
+				FA3E02051E29E96000F84DAB /* LaunchScreen.storyboard in Resources */,
+				FA3E02541E29F76F00F84DAB /* Home.storyboard in Resources */,
+				FA3E02021E29E96000F84DAB /* Assets.xcassets in Resources */,
+				FA3E024E1E29EEA800F84DAB /* SWProductDetailViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA3E02091E29E96000F84DAB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FA3E01EE1E29E95F00F84DAB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA3E02351E29EC5D00F84DAB /* SWLoginViewController.m in Sources */,
+				FA3E023D1E29ED1900F84DAB /* SWCatalogViewController.m in Sources */,
+				FA3E02381E29EC7100F84DAB /* SWRegistrationViewController.m in Sources */,
+				FA3E02301E29EB9800F84DAB /* SWUser.m in Sources */,
+				FA3E01FA1E29E96000F84DAB /* AppDelegate.m in Sources */,
+				FA3E01F71E29E96000F84DAB /* main.m in Sources */,
+				FA3E022D1E29EB7D00F84DAB /* SWShoppingCart.m in Sources */,
+				FA3E02521E29F24600F84DAB /* SWFilterListViewController.m in Sources */,
+				FA3E02461E29EDC300F84DAB /* SWCartViewController.m in Sources */,
+				FA3E024A1E29EDF900F84DAB /* SWPurchaseConfirmationViewController.m in Sources */,
+				FA3E02401E29ED2600F84DAB /* SWProductDetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA3E02071E29E96000F84DAB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA3E02101E29E96000F84DAB /* SalidoWineTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FA3E020D1E29E96000F84DAB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA3E01F11E29E95F00F84DAB /* SalidoWine */;
+			targetProxy = FA3E020C1E29E96000F84DAB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FA3E02031E29E96000F84DAB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA3E02041E29E96000F84DAB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FA3E02121E29E96000F84DAB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FA3E02131E29E96000F84DAB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FA3E02151E29E96000F84DAB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SalidoWine/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sahil.SalidoWine;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FA3E02161E29E96000F84DAB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SalidoWine/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sahil.SalidoWine;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		FA3E02181E29E96000F84DAB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SalidoWineTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sahil.SalidoWineTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SalidoWine.app/SalidoWine";
+			};
+			name = Debug;
+		};
+		FA3E02191E29E96000F84DAB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SalidoWineTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sahil.SalidoWineTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SalidoWine.app/SalidoWine";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FA3E01ED1E29E95F00F84DAB /* Build configuration list for PBXProject "SalidoWine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA3E02121E29E96000F84DAB /* Debug */,
+				FA3E02131E29E96000F84DAB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA3E02141E29E96000F84DAB /* Build configuration list for PBXNativeTarget "SalidoWine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA3E02151E29E96000F84DAB /* Debug */,
+				FA3E02161E29E96000F84DAB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FA3E02171E29E96000F84DAB /* Build configuration list for PBXNativeTarget "SalidoWineTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA3E02181E29E96000F84DAB /* Debug */,
+				FA3E02191E29E96000F84DAB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FA3E01EA1E29E95F00F84DAB /* Project object */;
+}

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Cart View Controller-->
+        <scene sceneID="wVJ-uK-QMI">
+            <objects>
+                <viewController id="95H-cF-jnI" customClass="SWCartViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1LM-3O-SwA"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ueb-Bh-E6J"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6aY-jh-V82">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="LDq-AG-lQV" kind="push" id="20l-0I-7aj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ipf-dc-Q3E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="97" y="174"/>
+        </scene>
+        <!--Purchase Confirmation View Controller-->
+        <scene sceneID="Vbl-ed-jwC">
+            <objects>
+                <viewController id="LDq-AG-lQV" customClass="SWPurchaseConfirmationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9cg-NB-IUH"/>
+                        <viewControllerLayoutGuide type="bottom" id="8Ui-4N-Gtf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="u21-QK-Okx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="gHQ-ku-RYq"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wbF-D2-Pju" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="910" y="173"/>
+        </scene>
+    </scenes>
+</document>
