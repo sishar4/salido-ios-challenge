@@ -10,4 +10,26 @@
 
 @implementation SWUser
 
++ (id)sharedInstance
+{
+    static SWUser *sharedInstance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [[self alloc] init];
+    });
+    
+    return sharedInstance;
+}
+
+- (id)initWithFirstName:(NSString *)firstName andLastName:(NSString *)lastName {
+    
+    self = [super init];
+    if (self) {
+        self.firstName = firstName;
+        self.lastName = lastName;
+    }
+    
+    return self;
+}
+
 @end

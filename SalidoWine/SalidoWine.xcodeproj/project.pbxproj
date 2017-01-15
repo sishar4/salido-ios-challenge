@@ -25,6 +25,10 @@
 		FA3E024E1E29EEA800F84DAB /* SWProductDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3E024D1E29EEA800F84DAB /* SWProductDetailViewController.xib */; };
 		FA3E02521E29F24600F84DAB /* SWFilterListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3E02511E29F24600F84DAB /* SWFilterListViewController.m */; };
 		FA3E02541E29F76F00F84DAB /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3E02531E29F76F00F84DAB /* Home.storyboard */; };
+		FA94C5BC1E2B23460005DE0B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA94C5BB1E2B23460005DE0B /* Security.framework */; };
+		FA94C5BF1E2B25070005DE0B /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = FA94C5BE1E2B25070005DE0B /* KeychainWrapper.m */; };
+		FA94C5C41E2B282E0005DE0B /* SWLoginOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FA94C5C31E2B282E0005DE0B /* SWLoginOperation.m */; };
+		FA94C5C71E2B2A7B0005DE0B /* SWRegistrationOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FA94C5C61E2B2A7B0005DE0B /* SWRegistrationOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +74,13 @@
 		FA3E02501E29F24600F84DAB /* SWFilterListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWFilterListViewController.h; sourceTree = "<group>"; };
 		FA3E02511E29F24600F84DAB /* SWFilterListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWFilterListViewController.m; sourceTree = "<group>"; };
 		FA3E02531E29F76F00F84DAB /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		FA94C5BB1E2B23460005DE0B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		FA94C5BD1E2B25070005DE0B /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainWrapper.h; sourceTree = "<group>"; };
+		FA94C5BE1E2B25070005DE0B /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainWrapper.m; sourceTree = "<group>"; };
+		FA94C5C21E2B282E0005DE0B /* SWLoginOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWLoginOperation.h; sourceTree = "<group>"; };
+		FA94C5C31E2B282E0005DE0B /* SWLoginOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWLoginOperation.m; sourceTree = "<group>"; };
+		FA94C5C51E2B2A7B0005DE0B /* SWRegistrationOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRegistrationOperation.h; sourceTree = "<group>"; };
+		FA94C5C61E2B2A7B0005DE0B /* SWRegistrationOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRegistrationOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA94C5BC1E2B23460005DE0B /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +108,7 @@
 				FA3E01F41E29E96000F84DAB /* SalidoWine */,
 				FA3E020E1E29E96000F84DAB /* SalidoWineTests */,
 				FA3E01F31E29E96000F84DAB /* Products */,
+				FA94C5BA1E2B23450005DE0B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,6 +129,7 @@
 				FA3E021A1E29E97F00F84DAB /* Authentication */,
 				FA3E021C1E29EA4E00F84DAB /* Home */,
 				FA3E021B1E29E99800F84DAB /* Checkout */,
+				FA94C5C01E2B26740005DE0B /* Resources */,
 				FA3E02011E29E96000F84DAB /* Assets.xcassets */,
 				FA3E02061E29E96000F84DAB /* Info.plist */,
 				FA3E02031E29E96000F84DAB /* LaunchScreen.storyboard */,
@@ -145,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				FA3E021D1E29EA6400F84DAB /* Models */,
+				FA94C5C11E2B27FB0005DE0B /* Operations */,
 				FA3E02221E29EADA00F84DAB /* Views */,
 				FA3E02311E29EC3000F84DAB /* Login */,
 				FA3E02321E29EC3900F84DAB /* Registration */,
@@ -289,6 +304,34 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		FA94C5BA1E2B23450005DE0B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA94C5BB1E2B23460005DE0B /* Security.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA94C5C01E2B26740005DE0B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FA94C5BD1E2B25070005DE0B /* KeychainWrapper.h */,
+				FA94C5BE1E2B25070005DE0B /* KeychainWrapper.m */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FA94C5C11E2B27FB0005DE0B /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				FA94C5C21E2B282E0005DE0B /* SWLoginOperation.h */,
+				FA94C5C31E2B282E0005DE0B /* SWLoginOperation.m */,
+				FA94C5C51E2B2A7B0005DE0B /* SWRegistrationOperation.h */,
+				FA94C5C61E2B2A7B0005DE0B /* SWRegistrationOperation.m */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -396,13 +439,16 @@
 			files = (
 				FA3E02351E29EC5D00F84DAB /* SWLoginViewController.m in Sources */,
 				FA3E023D1E29ED1900F84DAB /* SWCatalogViewController.m in Sources */,
+				FA94C5C71E2B2A7B0005DE0B /* SWRegistrationOperation.m in Sources */,
 				FA3E02381E29EC7100F84DAB /* SWRegistrationViewController.m in Sources */,
 				FA3E02301E29EB9800F84DAB /* SWUser.m in Sources */,
 				FA3E01FA1E29E96000F84DAB /* AppDelegate.m in Sources */,
 				FA3E01F71E29E96000F84DAB /* main.m in Sources */,
+				FA94C5C41E2B282E0005DE0B /* SWLoginOperation.m in Sources */,
 				FA3E022D1E29EB7D00F84DAB /* SWShoppingCart.m in Sources */,
 				FA3E02521E29F24600F84DAB /* SWFilterListViewController.m in Sources */,
 				FA3E02461E29EDC300F84DAB /* SWCartViewController.m in Sources */,
+				FA94C5BF1E2B25070005DE0B /* KeychainWrapper.m in Sources */,
 				FA3E024A1E29EDF900F84DAB /* SWPurchaseConfirmationViewController.m in Sources */,
 				FA3E02401E29ED2600F84DAB /* SWProductDetailViewController.m in Sources */,
 			);
@@ -593,6 +639,7 @@
 				FA3E02161E29E96000F84DAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FA3E02171E29E96000F84DAB /* Build configuration list for PBXNativeTarget "SalidoWineTests" */ = {
 			isa = XCConfigurationList;
@@ -601,6 +648,7 @@
 				FA3E02191E29E96000F84DAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,6 +7,7 @@
 //
 
 #import "SWLoginViewController.h"
+#import "SWLoginOperation.h"
 
 @interface SWLoginViewController ()
 
@@ -19,19 +20,46 @@
     // Do any additional setup after loading the view.
 }
 
+- (BOOL)validateEnteredPinFormat {
+    
+    if (self.pinTextField.text.length < 4) {
+        return NO;
+    }
+    
+    //check if only numbers, no letters or punctuation
+    
+    return YES;
+}
+
+- (IBAction)loginClicked:(id)sender {
+    
+    if ([self validateEnteredPinFormat]) {
+        [self loginUser];
+    } else {
+        //Display alert telling user to make sure to enter pin in textfield using only numbers
+    }
+    
+}
+
+- (void)loginUser {
+    
+    SWLoginOperation *loginOperation = [[SWLoginOperation alloc] initWithUserPin:self.pinTextField.text];
+    [loginOperation setCompletionBlock:^{
+        BOOL success = [[NSUserDefaults standardUserDefaults] boolForKey:@"didValidateUserSuccessfully"];
+        if (success) {
+            //Load Home.storyboard
+        } else {
+            //Display alert that Login failed
+        }
+    }];
+    
+    NSOperationQueue *operationQueue = [[NSOperationQueue alloc] init];
+    [operationQueue addOperation:loginOperation];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

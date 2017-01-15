@@ -10,4 +10,9 @@
 
 @interface SWLoginViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITextField *pinTextField;
+
+- (IBAction)loginClicked:(id)sender;
+- (void)loginUser;
+
 @end
