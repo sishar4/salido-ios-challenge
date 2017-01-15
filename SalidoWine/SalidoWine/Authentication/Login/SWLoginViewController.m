@@ -43,16 +43,15 @@
 
 - (void)loginUser {
     
-    SWLoginOperation *loginOperation = [[SWLoginOperation alloc] initWithUserPin:self.pinTextField.text];
-    [loginOperation setCompletionBlock:^{
-        BOOL success = [[NSUserDefaults standardUserDefaults] boolForKey:@"didValidateUserSuccessfully"];
+    SWLoginOperation *loginOperation = [[SWLoginOperation alloc] initWithUserPin:self.pinTextField.text andCompletionHandler:^(BOOL success) {
+        
         if (success) {
             //Load Home.storyboard
         } else {
             //Display alert that Login failed
         }
     }];
-    
+
     NSOperationQueue *operationQueue = [[NSOperationQueue alloc] init];
     [operationQueue addOperation:loginOperation];
 }

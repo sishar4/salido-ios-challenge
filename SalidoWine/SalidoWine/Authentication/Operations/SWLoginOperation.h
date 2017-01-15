@@ -11,6 +11,8 @@
 @interface SWLoginOperation : NSOperation
 
 @property (strong, nonatomic) NSString *userPin;
-- (id)initWithUserPin:(NSString *)userPin;
+@property (copy, nonatomic) void(^completionHandler)(BOOL success);
+
+- (id)initWithUserPin:(NSString *)userPin andCompletionHandler:(void (^)(BOOL success))completionHandler;
 
 @end

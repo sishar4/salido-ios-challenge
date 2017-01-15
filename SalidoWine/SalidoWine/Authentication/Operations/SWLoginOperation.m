@@ -11,11 +11,12 @@
 
 @implementation SWLoginOperation
 
-- (id)initWithUserPin:(NSString *)userPin {
+- (id)initWithUserPin:(NSString *)userPin andCompletionHandler:(void (^)(BOOL))completionHandler {
     
     self = [super init];
     if (self) {
         self.userPin = userPin;
+        self.completionHandler = completionHandler;
     }
     
     return self;
@@ -27,9 +28,7 @@
         NSLog(@"Login Operation cancelled");
     }
     
-    BOOL loginAttempt = [self validateUserWithPin:self.userPin];
-    [[NSUserDefaults standardUserDefaults] setBool:loginAttempt forKey:@"didValidateUserSuccessfully"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    self.completionHandler([self validateUserWithPin:self.userPin]);
 }
 
 - (BOOL)validateUserWithPin:(NSString *)pin {
