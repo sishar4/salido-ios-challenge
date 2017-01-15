@@ -8,6 +8,7 @@
 
 #import "SWLoginViewController.h"
 #import "SWLoginOperation.h"
+#import "SWPinFormatCheckerHelper.h"
 
 @interface SWLoginViewController ()
 
@@ -20,25 +21,25 @@
     // Do any additional setup after loading the view.
 }
 
-- (BOOL)validateEnteredPinFormat {
+- (BOOL)validateForm {
     
     if (self.pinTextField.text.length < 4) {
         return NO;
     }
-    
-    //check if only numbers, no letters or punctuation
+    if (![SWPinFormatCheckerHelper validateFormatOfPinWithString:self.pinTextField.text]) {
+        return NO;
+    }
     
     return YES;
 }
 
 - (IBAction)loginClicked:(id)sender {
     
-    if ([self validateEnteredPinFormat]) {
+    if ([self validateForm]) {
         [self loginUser];
     } else {
         //Display alert telling user to make sure to enter pin in textfield using only numbers
     }
-    
 }
 
 - (void)loginUser {

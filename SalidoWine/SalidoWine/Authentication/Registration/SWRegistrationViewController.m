@@ -9,6 +9,7 @@
 #import "SWRegistrationViewController.h"
 #import "SWUser.h"
 #import "SWRegistrationOperation.h"
+#import "SWPinFormatCheckerHelper.h"
 
 @interface SWRegistrationViewController ()
 
@@ -26,8 +27,9 @@
     if (self.pinTextField.text.length < 4 || self.firstNameTextField.text.length == 0 || self.lastNameTextField.text.length == 0) {
         return NO;
     }
-    
-    //check if only numbers, no letters or punctuation
+    if (![SWPinFormatCheckerHelper validateFormatOfPinWithString:self.pinTextField.text]) {
+        return NO;
+    }
     
     return YES;
 }

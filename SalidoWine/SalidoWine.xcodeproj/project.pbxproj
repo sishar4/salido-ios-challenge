@@ -29,6 +29,7 @@
 		FA94C5BF1E2B25070005DE0B /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = FA94C5BE1E2B25070005DE0B /* KeychainWrapper.m */; };
 		FA94C5C41E2B282E0005DE0B /* SWLoginOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FA94C5C31E2B282E0005DE0B /* SWLoginOperation.m */; };
 		FA94C5C71E2B2A7B0005DE0B /* SWRegistrationOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FA94C5C61E2B2A7B0005DE0B /* SWRegistrationOperation.m */; };
+		FA94C5CA1E2B458F0005DE0B /* SWPinFormatCheckerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FA94C5C91E2B458F0005DE0B /* SWPinFormatCheckerHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,8 @@
 		FA94C5C31E2B282E0005DE0B /* SWLoginOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWLoginOperation.m; sourceTree = "<group>"; };
 		FA94C5C51E2B2A7B0005DE0B /* SWRegistrationOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRegistrationOperation.h; sourceTree = "<group>"; };
 		FA94C5C61E2B2A7B0005DE0B /* SWRegistrationOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRegistrationOperation.m; sourceTree = "<group>"; };
+		FA94C5C81E2B458F0005DE0B /* SWPinFormatCheckerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWPinFormatCheckerHelper.h; sourceTree = "<group>"; };
+		FA94C5C91E2B458F0005DE0B /* SWPinFormatCheckerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWPinFormatCheckerHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,6 +320,8 @@
 			children = (
 				FA94C5BD1E2B25070005DE0B /* KeychainWrapper.h */,
 				FA94C5BE1E2B25070005DE0B /* KeychainWrapper.m */,
+				FA94C5C81E2B458F0005DE0B /* SWPinFormatCheckerHelper.h */,
+				FA94C5C91E2B458F0005DE0B /* SWPinFormatCheckerHelper.m */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -449,6 +454,7 @@
 				FA3E02521E29F24600F84DAB /* SWFilterListViewController.m in Sources */,
 				FA3E02461E29EDC300F84DAB /* SWCartViewController.m in Sources */,
 				FA94C5BF1E2B25070005DE0B /* KeychainWrapper.m in Sources */,
+				FA94C5CA1E2B458F0005DE0B /* SWPinFormatCheckerHelper.m in Sources */,
 				FA3E024A1E29EDF900F84DAB /* SWPurchaseConfirmationViewController.m in Sources */,
 				FA3E02401E29ED2600F84DAB /* SWProductDetailViewController.m in Sources */,
 			);
