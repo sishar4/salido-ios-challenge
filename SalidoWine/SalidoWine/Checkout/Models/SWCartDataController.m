@@ -25,6 +25,7 @@
         } else {
             //Add item to cart with quantity as {itemName: quantity}
             [cart.items setObject:[NSNumber numberWithInteger:quantity] forKey:itemName];
+            [cart.itemsArray addObject:itemName];
         }
         
         //Increment cart.totalItems by quantity
@@ -46,8 +47,9 @@
         //Decrement cart.totalItems by quantity for key -> item
         NSInteger numInCart = [[cart.items objectForKey:itemName] integerValue];
         cart.totalItems -= numInCart;
-        //Remove object in cart.items
+        //Remove object in cart.items and cart.itemsArray
         [cart.items removeObjectForKey:itemName];
+        [cart.itemsArray removeObject:itemName];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             completionHandler(YES);
@@ -62,8 +64,9 @@
     dispatch_block_t emptyCartBlock = dispatch_block_create_with_qos_class(0, QOS_CLASS_USER_INITIATED, 0, ^{
         
         SWShoppingCart *cart = [SWShoppingCart sharedInstance];
-        //Remove all objects in cart.items
+        //Remove all objects in cart.items and cart.itemsArray
         [cart.items removeAllObjects];
+        [cart.itemsArray removeAllObjects];
         //Set cart.totalItems to 0
         cart.totalItems = 0;
         

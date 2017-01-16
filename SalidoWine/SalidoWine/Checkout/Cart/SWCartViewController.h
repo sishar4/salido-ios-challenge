@@ -11,4 +11,7 @@
 @interface SWCartViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *totalItemsLabel;
+@property (weak, nonatomic) IBOutlet UIButton *completePurchaseButton;
+- (IBAction)completePurchasePressed:(id)sender;
+
 @end

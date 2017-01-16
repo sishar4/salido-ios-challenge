@@ -42,18 +42,22 @@
         [self registerUser];
     } else {
         //Display alert telling user to make sure to enter pin in textfield using only numbers
-        [SWAlertHelper presentAlertFromViewController:self withTitle:@"Invalid Input" andMessage:@"Pin can only contain numeric (0-9) values."];
+        [SWAlertHelper presentAlertFromViewController:self
+                                            withTitle:@"Invalid Input"
+                                           andMessage:@"Pin can only contain numeric (0-9) values."];
     }
 }
 
 - (void)registerUser {
     
-    SWUser *userObj = [[SWUser alloc] initWithFirstName:self.firstNameTextField.text andLastName:self.lastNameTextField.text];
+    SWUser *userObj = [[SWUser alloc] initWithFirstName:self.firstNameTextField.text
+                                            andLastName:self.lastNameTextField.text];
     if (self.emailAddressTextField.text.length > 0) {
         userObj.emailAddress = self.emailAddressTextField.text;
     }
     
-    SWRegistrationOperation *registrationOperation = [[SWRegistrationOperation alloc] initWithUser:userObj andPin:self.pinTextField.text];
+    SWRegistrationOperation *registrationOperation = [[SWRegistrationOperation alloc] initWithUser:userObj
+                                                                                            andPin:self.pinTextField.text];
     [registrationOperation setCompletionBlock:^{
         
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{

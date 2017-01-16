@@ -7,6 +7,8 @@
 //
 
 #import "SWPurchaseConfirmationViewController.h"
+#import "SWUser.h"
+#import "SWCatalogViewController.h"
 
 @interface SWPurchaseConfirmationViewController ()
 
@@ -14,24 +16,29 @@
 
 @implementation SWPurchaseConfirmationViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    SWUser *sharedUser = [SWUser sharedInstance];
+    [self.fullNameLabel setText:[NSString stringWithFormat:@"%@ %@", sharedUser.firstName, sharedUser.lastName]];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+- (IBAction)backToBrowsePressed:(id)sender {
+    
+    //Load Home.storyboard
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Home" bundle:nil];
+    SWCatalogViewController *vc = [sb instantiateInitialViewController];
+    [self presentViewController:vc animated:YES completion:NULL];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

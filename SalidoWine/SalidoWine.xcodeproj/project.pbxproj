@@ -32,6 +32,7 @@
 		FA94C5CA1E2B458F0005DE0B /* SWPinFormatCheckerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FA94C5C91E2B458F0005DE0B /* SWPinFormatCheckerHelper.m */; };
 		FA94C5CD1E2C5EAE0005DE0B /* SWAlertHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FA94C5CC1E2C5EAE0005DE0B /* SWAlertHelper.m */; };
 		FA94C5D21E2D490B0005DE0B /* SWCartDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA94C5D11E2D490B0005DE0B /* SWCartDataController.m */; };
+		FA94C5D61E2D7C510005DE0B /* SWPurchaseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FA94C5D51E2D7C510005DE0B /* SWPurchaseOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,8 @@
 		FA94C5CC1E2C5EAE0005DE0B /* SWAlertHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWAlertHelper.m; sourceTree = "<group>"; };
 		FA94C5D01E2D490B0005DE0B /* SWCartDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWCartDataController.h; sourceTree = "<group>"; };
 		FA94C5D11E2D490B0005DE0B /* SWCartDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWCartDataController.m; sourceTree = "<group>"; };
+		FA94C5D41E2D7C510005DE0B /* SWPurchaseOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWPurchaseOperation.h; sourceTree = "<group>"; };
+		FA94C5D51E2D7C510005DE0B /* SWPurchaseOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWPurchaseOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				FA3E022A1E29EB6000F84DAB /* Models */,
+				FA94C5D31E2D7C360005DE0B /* Operations */,
 				FA3E02291E29EB5B00F84DAB /* Views */,
 				FA3E02281E29EB5300F84DAB /* Cart */,
 			);
@@ -347,6 +351,15 @@
 			path = Operations;
 			sourceTree = "<group>";
 		};
+		FA94C5D31E2D7C360005DE0B /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				FA94C5D41E2D7C510005DE0B /* SWPurchaseOperation.h */,
+				FA94C5D51E2D7C510005DE0B /* SWPurchaseOperation.m */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -452,6 +465,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA94C5D61E2D7C510005DE0B /* SWPurchaseOperation.m in Sources */,
 				FA3E02351E29EC5D00F84DAB /* SWLoginViewController.m in Sources */,
 				FA3E023D1E29ED1900F84DAB /* SWCatalogViewController.m in Sources */,
 				FA94C5C71E2B2A7B0005DE0B /* SWRegistrationOperation.m in Sources */,

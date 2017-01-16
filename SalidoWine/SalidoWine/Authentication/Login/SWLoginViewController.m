@@ -41,13 +41,16 @@
         [self loginUser];
     } else {
         //Display alert telling user to make sure to enter pin in textfield using only numbers
-        [SWAlertHelper presentAlertFromViewController:self withTitle:@"Invalid Input" andMessage:@"Pin can only contain numeric (0-9) values."];
+        [SWAlertHelper presentAlertFromViewController:self
+                                            withTitle:@"Invalid Input"
+                                           andMessage:@"Pin can only contain numeric (0-9) values."];
     }
 }
 
 - (void)loginUser {
     
-    SWLoginOperation *loginOperation = [[SWLoginOperation alloc] initWithUserPin:self.pinTextField.text andCompletionHandler:^(BOOL success) {
+    SWLoginOperation *loginOperation = [[SWLoginOperation alloc] initWithUserPin:self.pinTextField.text
+                                                            andCompletionHandler:^(BOOL success) {
         
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             if (success) {
@@ -57,7 +60,9 @@
                 [self presentViewController:vc animated:YES completion:NULL];
             } else {
                 //Display alert that Login failed
-                [SWAlertHelper presentAlertFromViewController:self withTitle:@"Invalid Pin" andMessage:@"Incorrect pin entered. Please try again."];
+                [SWAlertHelper presentAlertFromViewController:self
+                                                    withTitle:@"Invalid Pin"
+                                                   andMessage:@"Incorrect pin entered. Please try again."];
             }
         }];
     }];

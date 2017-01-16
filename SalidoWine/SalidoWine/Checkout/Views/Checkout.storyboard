@@ -39,7 +39,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="LDq-AG-lQV" kind="push" id="20l-0I-7aj"/>
+                        <segue destination="LDq-AG-lQV" kind="push" identifier="confirmPurchase" id="20l-0I-7aj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ipf-dc-Q3E" userLabel="First Responder" sceneMemberID="firstResponder"/>
