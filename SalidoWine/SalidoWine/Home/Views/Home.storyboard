@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Catalog View Controller-->
+        <!--SalidoWine List-->
         <scene sceneID="TA0-Jd-sHy">
             <objects>
                 <viewController id="zb4-Em-Cnz" customClass="SWCatalogViewController" sceneMemberID="viewController">
@@ -22,15 +22,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="SalidoWine List" id="yKy-Ap-Czo"/>
                     <connections>
                         <segue destination="Dvo-wX-5YW" kind="show" id="Ul5-S6-NWc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r2Z-ON-Io1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="41" y="122"/>
+            <point key="canvasLocation" x="980" y="121.88905547226388"/>
         </scene>
-        <!--Filter List View Controller-->
+        <!--Product View-->
         <scene sceneID="aWb-qd-6Of">
             <objects>
                 <viewController id="Dvo-wX-5YW" customClass="SWFilterListViewController" sceneMemberID="viewController">
@@ -43,10 +44,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Product View" id="aPT-1h-6J8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CaY-BS-FsK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="833" y="122"/>
+            <point key="canvasLocation" x="1772" y="121.88905547226388"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dYz-2q-0Gr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NMk-9k-A6x" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1dB-YG-23A">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="zb4-Em-Cnz" kind="relationship" relationship="rootViewController" id="7YV-3t-EA2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="spN-rk-VmD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="40.799999999999997" y="121.88905547226388"/>
         </scene>
     </scenes>
 </document>

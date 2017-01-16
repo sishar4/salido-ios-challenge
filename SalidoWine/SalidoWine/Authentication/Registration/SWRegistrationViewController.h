@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *lastNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *emailAddressTextField;
 @property (weak, nonatomic) IBOutlet UITextField *pinTextField;
+@property (weak, nonatomic) IBOutlet UIButton *registerButton;
 
 - (IBAction)registerClicked:(id)sender;
 - (void)registerUser;

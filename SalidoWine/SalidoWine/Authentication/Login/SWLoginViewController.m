@@ -9,6 +9,8 @@
 #import "SWLoginViewController.h"
 #import "SWLoginOperation.h"
 #import "SWPinFormatCheckerHelper.h"
+#import "SWAlertHelper.h"
+#import "SWCatalogViewController.h"
 
 @interface SWLoginViewController ()
 
@@ -34,11 +36,12 @@
 }
 
 - (IBAction)loginClicked:(id)sender {
-    
+    //Check if pin format and input is acceptable
     if ([self validateForm]) {
         [self loginUser];
     } else {
         //Display alert telling user to make sure to enter pin in textfield using only numbers
+        [SWAlertHelper presentAlertFromViewController:self withTitle:@"Invalid Input" andMessage:@"Pin can only contain numeric (0-9) values."];
     }
 }
 
@@ -46,11 +49,17 @@
     
     SWLoginOperation *loginOperation = [[SWLoginOperation alloc] initWithUserPin:self.pinTextField.text andCompletionHandler:^(BOOL success) {
         
-        if (success) {
-            //Load Home.storyboard
-        } else {
-            //Display alert that Login failed
-        }
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            if (success) {
+                //Load Home.storyboard
+                UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Home" bundle:nil];
+                SWCatalogViewController *vc = [sb instantiateInitialViewController];
+                [self presentViewController:vc animated:YES completion:NULL];
+            } else {
+                //Display alert that Login failed
+                [SWAlertHelper presentAlertFromViewController:self withTitle:@"Invalid Pin" andMessage:@"Incorrect pin entered. Please try again."];
+            }
+        }];
     }];
 
     NSOperationQueue *operationQueue = [[NSOperationQueue alloc] init];

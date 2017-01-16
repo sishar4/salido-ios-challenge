@@ -20,7 +20,23 @@
                     <view key="view" contentMode="scaleToFill" id="6aY-jh-V82">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R18-IX-cab">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="DuO-Qd-tKJ"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Shopping Cart" id="Zon-Dv-96z"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="R18-IX-cab" secondAttribute="trailing" id="6Mt-5Y-NzF"/>
+                            <constraint firstItem="R18-IX-cab" firstAttribute="top" secondItem="1LM-3O-SwA" secondAttribute="bottom" constant="-20" id="NrG-YQ-Dea"/>
+                            <constraint firstItem="R18-IX-cab" firstAttribute="leading" secondItem="6aY-jh-V82" secondAttribute="leading" id="dFI-0P-d8F"/>
+                        </constraints>
                     </view>
                     <connections>
                         <segue destination="LDq-AG-lQV" kind="push" id="20l-0I-7aj"/>

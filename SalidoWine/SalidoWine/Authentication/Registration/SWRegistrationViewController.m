@@ -10,6 +10,8 @@
 #import "SWUser.h"
 #import "SWRegistrationOperation.h"
 #import "SWPinFormatCheckerHelper.h"
+#import "SWAlertHelper.h"
+#import "SWCatalogViewController.h"
 
 @interface SWRegistrationViewController ()
 
@@ -35,13 +37,13 @@
 }
 
 - (IBAction)registerClicked:(id)sender {
-    
+    //Check if pin format and input is acceptable
     if ([self validateForm]) {
         [self registerUser];
     } else {
         //Display alert telling user to make sure to enter pin in textfield using only numbers
+        [SWAlertHelper presentAlertFromViewController:self withTitle:@"Invalid Input" andMessage:@"Pin can only contain numeric (0-9) values."];
     }
-    
 }
 
 - (void)registerUser {
@@ -53,7 +55,13 @@
     
     SWRegistrationOperation *registrationOperation = [[SWRegistrationOperation alloc] initWithUser:userObj andPin:self.pinTextField.text];
     [registrationOperation setCompletionBlock:^{
-        //Load Home.storyboard
+        
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            //Load Home.storyboard
+            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Home" bundle:nil];
+            SWCatalogViewController *vc = [sb instantiateInitialViewController];
+            [self presentViewController:vc animated:YES completion:NULL];
+        }];    
     }];
     
     NSOperationQueue *operationQueue = [[NSOperationQueue alloc] init];

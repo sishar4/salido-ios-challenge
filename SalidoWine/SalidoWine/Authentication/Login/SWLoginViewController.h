@@ -11,6 +11,7 @@
 @interface SWLoginViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITextField *pinTextField;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
 - (IBAction)loginClicked:(id)sender;
 - (void)loginUser;
