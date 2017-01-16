@@ -10,4 +10,9 @@
 
 @interface SWShoppingCart : NSObject
 
+@property (strong, nonatomic) NSMutableDictionary *items;
+@property (assign, nonatomic) NSInteger totalItems;
+
++ (id)sharedInstance;
+
 @end

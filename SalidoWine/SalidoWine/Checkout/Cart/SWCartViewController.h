@@ -10,4 +10,5 @@
 
 @interface SWCartViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *totalItemsLabel;
 @end
