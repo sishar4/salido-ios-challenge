@@ -49,7 +49,7 @@
         //Display alert telling user to make sure to enter pin in textfield using only numbers
         [SWAlertHelper presentAlertFromViewController:self
                                             withTitle:@"Invalid Input"
-                                           andMessage:@"Pin must be 4 digits and can only contain numeric (0-9) values."];
+                                           andMessage:@"Please fill out all required fields. Pin must be 4 digits and can only contain numeric (0-9) values."];
     }
 }
 
@@ -69,8 +69,9 @@
             //Load Home.storyboard
             UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Home" bundle:nil];
             SWCatalogViewController *vc = [sb instantiateViewControllerWithIdentifier:@"SWCatalogViewController"];
-            [self presentViewController:vc animated:YES completion:NULL];
-        }];    
+            UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:vc];
+            [self presentViewController:navController animated:YES completion:NULL];
+        }];
     }];
     
     NSOperationQueue *operationQueue = [[NSOperationQueue alloc] init];

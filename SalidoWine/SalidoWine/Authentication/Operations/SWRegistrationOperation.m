@@ -33,16 +33,10 @@
 
 - (void)registerNewUser {
     
-    SWUser *sharedUser = [SWUser sharedInstance];
-    sharedUser.firstName = self.user.firstName;
-    sharedUser.lastName = self.user.lastName;
-    
-    if (self.user.emailAddress.length > 0) {
-        sharedUser.emailAddress = self.user.emailAddress;
-    }
-    
     KeychainWrapper *keychain = [[KeychainWrapper alloc] init];
     [keychain mySetObject:self.userPin forKey:(id)kSecValueData];
+    [keychain mySetObject:self.user.firstName forKey:(id)kSecAttrLabel];
+    [keychain mySetObject:self.user.lastName forKey:(id)kSecAttrComment];
 }
 
 @end

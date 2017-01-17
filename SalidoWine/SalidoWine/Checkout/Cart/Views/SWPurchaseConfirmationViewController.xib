@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SWPurchaseConfirmationViewController">
             <connections>
+                <outlet property="firstNameLabel" destination="kJY-Zt-ZFJ" id="7sj-Lj-fIr"/>
                 <outlet property="view" destination="j2O-OQ-XBz" id="k5y-Tr-wmd"/>
             </connections>
         </placeholder>
@@ -18,7 +19,93 @@
         <view contentMode="scaleToFill" id="j2O-OQ-XBz">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Purchase Successful!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mbj-BS-ZAf">
+                    <rect key="frame" x="16" y="20" width="343" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="BOa-m2-G53"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank you for completing you order with us. Your items will arrive shortly. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJY-Zt-ZFJ">
+                    <rect key="frame" x="16" y="100" width="343" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="hEL-nN-GYC"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You may continue shopping if you like." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ya5-fs-ykF">
+                    <rect key="frame" x="16" y="168" width="343" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Q6C-dX-Lmc"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eKr-fZ-ahJ">
+                    <rect key="frame" x="77" y="216" width="220" height="60"/>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="fKa-BQ-bXZ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                    <state key="normal" title="Back to Browse">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="backToBrowsePressed:" destination="-1" eventType="touchUpInside" id="nZ7-ui-XlH"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or Logout and exit the app." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPF-Xd-Tuj">
+                    <rect key="frame" x="16" y="284" width="343" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="V0U-We-dQj"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IHs-CC-RxE">
+                    <rect key="frame" x="77" y="332" width="220" height="60"/>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="PEv-ix-hop"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                    <state key="normal" title="Logout">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="logoutPressed:" destination="-1" eventType="touchUpInside" id="eya-iq-Xgg"/>
+                    </connections>
+                </button>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="IHs-CC-RxE" firstAttribute="leading" secondItem="j2O-OQ-XBz" secondAttribute="leading" constant="77" id="41y-vN-EZR"/>
+                <constraint firstAttribute="trailing" secondItem="eKr-fZ-ahJ" secondAttribute="trailing" constant="78" id="GIk-DS-gNP"/>
+                <constraint firstItem="bPF-Xd-Tuj" firstAttribute="top" secondItem="eKr-fZ-ahJ" secondAttribute="bottom" constant="8" id="Gec-Gd-nki"/>
+                <constraint firstItem="eKr-fZ-ahJ" firstAttribute="top" secondItem="ya5-fs-ykF" secondAttribute="bottom" constant="8" id="K6R-RK-Gwt"/>
+                <constraint firstAttribute="trailing" secondItem="ya5-fs-ykF" secondAttribute="trailing" constant="16" id="LDi-Iz-UTh"/>
+                <constraint firstAttribute="trailing" secondItem="mbj-BS-ZAf" secondAttribute="trailing" constant="16" id="NTA-BD-ahb"/>
+                <constraint firstAttribute="trailing" secondItem="bPF-Xd-Tuj" secondAttribute="trailing" constant="16" id="Q7j-v4-au5"/>
+                <constraint firstItem="bPF-Xd-Tuj" firstAttribute="leading" secondItem="j2O-OQ-XBz" secondAttribute="leading" constant="16" id="RuX-Kg-b5m"/>
+                <constraint firstAttribute="trailing" secondItem="IHs-CC-RxE" secondAttribute="trailing" constant="78" id="UF3-sG-7M4"/>
+                <constraint firstItem="mbj-BS-ZAf" firstAttribute="leading" secondItem="j2O-OQ-XBz" secondAttribute="leading" constant="16" id="URR-W0-TRr"/>
+                <constraint firstItem="ya5-fs-ykF" firstAttribute="top" secondItem="kJY-Zt-ZFJ" secondAttribute="bottom" constant="8" id="WXW-Za-azp"/>
+                <constraint firstItem="eKr-fZ-ahJ" firstAttribute="leading" secondItem="j2O-OQ-XBz" secondAttribute="leading" constant="77" id="axS-Hv-VTu"/>
+                <constraint firstItem="IHs-CC-RxE" firstAttribute="top" secondItem="bPF-Xd-Tuj" secondAttribute="bottom" constant="8" id="hY5-wb-JSP"/>
+                <constraint firstItem="kJY-Zt-ZFJ" firstAttribute="leading" secondItem="j2O-OQ-XBz" secondAttribute="leading" constant="16" id="mrD-gD-Ln7"/>
+                <constraint firstAttribute="trailing" secondItem="kJY-Zt-ZFJ" secondAttribute="trailing" constant="16" id="nfl-oc-Asl"/>
+                <constraint firstItem="ya5-fs-ykF" firstAttribute="leading" secondItem="j2O-OQ-XBz" secondAttribute="leading" constant="16" id="oSn-1I-K9B"/>
+                <constraint firstItem="mbj-BS-ZAf" firstAttribute="top" secondItem="j2O-OQ-XBz" secondAttribute="top" constant="20" id="wEp-Ea-9Nt"/>
+                <constraint firstItem="kJY-Zt-ZFJ" firstAttribute="top" secondItem="mbj-BS-ZAf" secondAttribute="bottom" constant="36" id="wGV-aB-dZx"/>
+            </constraints>
+            <point key="canvasLocation" x="33.5" y="113.5"/>
         </view>
     </objects>
 </document>

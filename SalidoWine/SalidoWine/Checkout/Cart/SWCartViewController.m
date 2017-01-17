@@ -15,6 +15,7 @@
 #import "SWPurchaseOperation.h"
 #import "SWProductDetailViewController.h"
 #import "SWLogoutBarButtonItem.h"
+#import "SWPurchaseConfirmationViewController.h"
 
 @interface SWCartViewController ()
 
@@ -26,15 +27,28 @@
 
 @implementation SWCartViewController
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void)updateUI {
     
-    if (self.purchaseItemsArray.count > 0) {
+    [self.tableView reloadData];
+    [self.totalItemsLabel setText:[NSString stringWithFormat:@"%lu items", (unsigned long)self.purchaseItemsArray.count]];
+    
+    //Make completePurchaseButton inactive if cart is empty
+    if (self.purchaseItemsArray.count == 0) {
+        [self.completePurchaseButton setUserInteractionEnabled:NO];
+        [self.completePurchaseButton setBackgroundColor:[UIColor lightGrayColor]];
+    }
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    //Check if there is a difference between global array of items for shopping cart and local array
+    if (self.purchaseItemsArray.count != self.shoppingCart.itemsArray.count) {
         [self.purchaseItemsArray removeAllObjects];
+        [self.purchaseItemsArray addObjectsFromArray:self.shoppingCart.itemsArray];
     }
     
-    [self.purchaseItemsArray addObjectsFromArray:self.shoppingCart.itemsArray];
-    [self.tableView reloadData];
+    [self updateUI];
 }
 
 - (void)viewDidLoad {
@@ -77,14 +91,14 @@
         NSArray * textfields = alertController.textFields;
         UITextField *pinTextField = textfields[0];
         //Check if pin format and input is acceptable
-        if (pinTextField.text.length == 4 && ![SWPinFormatCheckerHelper validateFormatOfPinWithString:pinTextField.text]) {
+        if (pinTextField.text.length == 4 && [SWPinFormatCheckerHelper validateFormatOfPinWithString:pinTextField.text]) {
             self.pinCopy = pinTextField.text;
             [self confirmPurchase];
         } else {
             //Display alert telling user to make sure to enter pin in textfield using only numbers
             [SWAlertHelper presentAlertFromViewController:self
                                                 withTitle:@"Invalid Input"
-                                               andMessage:@"Pin can only contain numeric (0-9) values."];
+                                               andMessage:@"Pin must be 4 digits and can only contain numeric (0-9) values."];
         }
     }]];
     [self presentViewController:alertController animated:YES completion:nil];
@@ -110,7 +124,10 @@
         
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             if (success) {
-                [self performSegueWithIdentifier:@"confirmPurchase" sender:nil];
+                //Load ConfirmPurchase view
+                SWPurchaseConfirmationViewController *cartVC = [[SWPurchaseConfirmationViewController alloc] initWithNibName:@"SWPurchaseConfirmationViewController" bundle:nil];
+//                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:cartVC];
+                [self presentViewController:cartVC animated:YES completion:nil];
             } else {
                 //Display alert that Purchase failed
                 [SWAlertHelper presentAlertFromViewController:self
@@ -141,6 +158,7 @@
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:sender.tag inSection:0];
             [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
                                   withRowAnimation:UITableViewRowAnimationTop];
+            [self updateUI];
         }
     }];
 }

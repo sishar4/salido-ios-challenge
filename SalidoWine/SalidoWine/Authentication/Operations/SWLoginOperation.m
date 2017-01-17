@@ -8,6 +8,7 @@
 
 #import "SWLoginOperation.h"
 #import "KeychainWrapper.h"
+#import "SWUser.h"
 
 @implementation SWLoginOperation
 
@@ -35,6 +36,12 @@
 
     KeychainWrapper *keychain = [[KeychainWrapper alloc] init];
     if ([[keychain myObjectForKey:(id)kSecValueData] isEqualToString:pin]) {
+        
+        
+        SWUser *sharedInstance = [SWUser sharedInstance];
+        sharedInstance.firstName = [keychain myObjectForKey:(id)kSecAttrLabel];
+        sharedInstance.lastName = [keychain myObjectForKey:(id)kSecAttrComment];
+        
         return YES;
     }
     

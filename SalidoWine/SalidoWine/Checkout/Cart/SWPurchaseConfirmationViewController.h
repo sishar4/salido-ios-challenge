@@ -10,8 +10,8 @@
 
 @interface SWPurchaseConfirmationViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UILabel *fullNameLabel;
-@property (weak, nonatomic) IBOutlet UIButton *backToBrowseButton;
+@property (weak, nonatomic) IBOutlet UILabel *firstNameLabel;
 - (IBAction)backToBrowsePressed:(id)sender;
+- (IBAction)logoutPressed:(id)sender;
 
 @end

@@ -9,6 +9,7 @@
 #import "SWPurchaseConfirmationViewController.h"
 #import "SWUser.h"
 #import "SWCatalogViewController.h"
+#import "SWLoginViewController.h"
 
 @interface SWPurchaseConfirmationViewController ()
 
@@ -20,7 +21,7 @@
     [super viewWillAppear:animated];
     
     SWUser *sharedUser = [SWUser sharedInstance];
-    [self.fullNameLabel setText:[NSString stringWithFormat:@"%@ %@", sharedUser.firstName, sharedUser.lastName]];
+    [self.firstNameLabel setText:[NSString stringWithFormat:@"Thank you %@, for completing you order with us. Your items will arrive shortly.", sharedUser.firstName]];
 }
 
 - (void)viewDidLoad {
@@ -32,8 +33,19 @@
     
     //Load Home.storyboard
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Home" bundle:nil];
-    SWCatalogViewController *vc = [sb instantiateInitialViewController];
-    [self presentViewController:vc animated:YES completion:NULL];
+    SWCatalogViewController *vc = [sb instantiateViewControllerWithIdentifier:@"SWCatalogViewController"];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:vc];
+    navController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:navController animated:YES completion:NULL];
+}
+
+- (IBAction)logoutPressed:(id)sender {
+    
+    //Load Authentication.storyboard
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Authentication" bundle:nil];
+    SWLoginViewController *viewController = [sb instantiateViewControllerWithIdentifier:@"SWLoginViewController"];
+    viewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:viewController animated:YES completion:NULL];
 }
 
 - (void)didReceiveMemoryWarning {
