@@ -7,6 +7,8 @@
 //
 
 #import "SWCatalogViewController.h"
+#import "SWCartBarButtonItem.h"
+#import "SWLogoutBarButtonItem.h"
 
 @interface SWCatalogViewController ()
 
@@ -17,21 +19,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    SWCartBarButtonItem *cartBarButton = [[SWCartBarButtonItem alloc] initFromViewController:self];
+    self.navigationItem.leftBarButtonItem = cartBarButton;
+    SWLogoutBarButtonItem *logoutBarButton = [[SWLogoutBarButtonItem alloc] initFromViewController:self];
+    self.navigationItem.rightBarButtonItem = logoutBarButton;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

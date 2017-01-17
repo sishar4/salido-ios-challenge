@@ -17,5 +17,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *totalItemsLabel;
 @property (weak, nonatomic) IBOutlet UIButton *completePurchaseButton;
 - (IBAction)completePurchasePressed:(id)sender;
+- (IBAction)dismissCart:(id)sender;
 
 @end

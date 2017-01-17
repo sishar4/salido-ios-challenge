@@ -57,7 +57,8 @@
                 //Load Home.storyboard
                 UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Home" bundle:nil];
                 SWCatalogViewController *vc = [sb instantiateViewControllerWithIdentifier:@"SWCatalogViewController"];
-                [self presentViewController:vc animated:YES completion:NULL];
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:vc];
+                [self presentViewController:navController animated:YES completion:NULL];
             } else {
                 //Display alert that Login failed
                 [SWAlertHelper presentAlertFromViewController:self

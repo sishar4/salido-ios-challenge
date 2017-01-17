@@ -12,7 +12,7 @@
         <!--Login View Controller-->
         <scene sceneID="Rbt-SU-g1g">
             <objects>
-                <viewController id="J24-96-Yhj" customClass="SWLoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SWLoginViewController" id="J24-96-Yhj" customClass="SWLoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9wJ-rL-1O8"/>
                         <viewControllerLayoutGuide type="bottom" id="V4h-zl-b19"/>

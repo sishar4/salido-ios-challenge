@@ -19,7 +19,6 @@
 		FA3E02381E29EC7100F84DAB /* SWRegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3E02371E29EC7100F84DAB /* SWRegistrationViewController.m */; };
 		FA3E023D1E29ED1900F84DAB /* SWCatalogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3E023C1E29ED1900F84DAB /* SWCatalogViewController.m */; };
 		FA3E02401E29ED2600F84DAB /* SWProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3E023F1E29ED2600F84DAB /* SWProductDetailViewController.m */; };
-		FA3E02421E29ED6100F84DAB /* Checkout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3E02411E29ED6100F84DAB /* Checkout.storyboard */; };
 		FA3E02461E29EDC300F84DAB /* SWCartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3E02451E29EDC300F84DAB /* SWCartViewController.m */; };
 		FA3E024A1E29EDF900F84DAB /* SWPurchaseConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3E02491E29EDF900F84DAB /* SWPurchaseConfirmationViewController.m */; };
 		FA3E024E1E29EEA800F84DAB /* SWProductDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3E024D1E29EEA800F84DAB /* SWProductDetailViewController.xib */; };
@@ -35,6 +34,10 @@
 		FA94C5D61E2D7C510005DE0B /* SWPurchaseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FA94C5D51E2D7C510005DE0B /* SWPurchaseOperation.m */; };
 		FA94C5D81E2DA1B50005DE0B /* SWCartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA94C5D71E2DA1B50005DE0B /* SWCartTableViewCell.xib */; };
 		FA94C5DB1E2DA4C60005DE0B /* SWCartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA94C5DA1E2DA4C60005DE0B /* SWCartTableViewCell.m */; };
+		FA94C5DF1E2DDB0E0005DE0B /* SWCartBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FA94C5DE1E2DDB0E0005DE0B /* SWCartBarButtonItem.m */; };
+		FA94C5E11E2DE1610005DE0B /* SWCartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA94C5E01E2DE1610005DE0B /* SWCartViewController.xib */; };
+		FA94C5E31E2DE2950005DE0B /* SWPurchaseConfirmationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA94C5E21E2DE2950005DE0B /* SWPurchaseConfirmationViewController.xib */; };
+		FA94C5E61E2DE9D80005DE0B /* SWLogoutBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FA94C5E51E2DE9D80005DE0B /* SWLogoutBarButtonItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,7 +74,6 @@
 		FA3E023C1E29ED1900F84DAB /* SWCatalogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWCatalogViewController.m; sourceTree = "<group>"; };
 		FA3E023E1E29ED2600F84DAB /* SWProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWProductDetailViewController.h; sourceTree = "<group>"; };
 		FA3E023F1E29ED2600F84DAB /* SWProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWProductDetailViewController.m; sourceTree = "<group>"; };
-		FA3E02411E29ED6100F84DAB /* Checkout.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Checkout.storyboard; sourceTree = "<group>"; };
 		FA3E02441E29EDC300F84DAB /* SWCartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWCartViewController.h; sourceTree = "<group>"; };
 		FA3E02451E29EDC300F84DAB /* SWCartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWCartViewController.m; sourceTree = "<group>"; };
 		FA3E02481E29EDF900F84DAB /* SWPurchaseConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWPurchaseConfirmationViewController.h; sourceTree = "<group>"; };
@@ -98,6 +100,12 @@
 		FA94C5D71E2DA1B50005DE0B /* SWCartTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWCartTableViewCell.xib; sourceTree = "<group>"; };
 		FA94C5D91E2DA4C60005DE0B /* SWCartTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWCartTableViewCell.h; sourceTree = "<group>"; };
 		FA94C5DA1E2DA4C60005DE0B /* SWCartTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWCartTableViewCell.m; sourceTree = "<group>"; };
+		FA94C5DD1E2DDB0E0005DE0B /* SWCartBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWCartBarButtonItem.h; sourceTree = "<group>"; };
+		FA94C5DE1E2DDB0E0005DE0B /* SWCartBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWCartBarButtonItem.m; sourceTree = "<group>"; };
+		FA94C5E01E2DE1610005DE0B /* SWCartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWCartViewController.xib; sourceTree = "<group>"; };
+		FA94C5E21E2DE2950005DE0B /* SWPurchaseConfirmationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWPurchaseConfirmationViewController.xib; sourceTree = "<group>"; };
+		FA94C5E41E2DE9D80005DE0B /* SWLogoutBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWLogoutBarButtonItem.h; sourceTree = "<group>"; };
+		FA94C5E51E2DE9D80005DE0B /* SWLogoutBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWLogoutBarButtonItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,9 +183,9 @@
 		FA3E021A1E29E97F00F84DAB /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				FA3E02231E29EB1000F84DAB /* Authentication.storyboard */,
 				FA3E021D1E29EA6400F84DAB /* Models */,
 				FA94C5C11E2B27FB0005DE0B /* Operations */,
-				FA3E02221E29EADA00F84DAB /* Views */,
 				FA3E02311E29EC3000F84DAB /* Login */,
 				FA3E02321E29EC3900F84DAB /* Registration */,
 			);
@@ -189,7 +197,6 @@
 			children = (
 				FA3E022A1E29EB6000F84DAB /* Models */,
 				FA94C5D31E2D7C360005DE0B /* Operations */,
-				FA3E02291E29EB5B00F84DAB /* Views */,
 				FA3E02281E29EB5300F84DAB /* Cart */,
 			);
 			path = Checkout;
@@ -198,8 +205,8 @@
 		FA3E021C1E29EA4E00F84DAB /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				FA3E02531E29F76F00F84DAB /* Home.storyboard */,
 				FA3E02211E29EAB400F84DAB /* Models */,
-				FA3E02201E29EAA100F84DAB /* Views */,
 				FA3E02391E29ECED00F84DAB /* Catalog */,
 				FA3E023A1E29ECF200F84DAB /* ProductDetail */,
 			);
@@ -215,14 +222,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		FA3E02201E29EAA100F84DAB /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				FA3E02531E29F76F00F84DAB /* Home.storyboard */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		FA3E02211E29EAB400F84DAB /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,34 +229,18 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		FA3E02221E29EADA00F84DAB /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				FA3E02231E29EB1000F84DAB /* Authentication.storyboard */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		FA3E02281E29EB5300F84DAB /* Cart */ = {
 			isa = PBXGroup;
 			children = (
+				FA94C5DC1E2DD8670005DE0B /* Views */,
 				FA3E02441E29EDC300F84DAB /* SWCartViewController.h */,
 				FA3E02451E29EDC300F84DAB /* SWCartViewController.m */,
 				FA3E02481E29EDF900F84DAB /* SWPurchaseConfirmationViewController.h */,
 				FA3E02491E29EDF900F84DAB /* SWPurchaseConfirmationViewController.m */,
-			);
-			path = Cart;
-			sourceTree = "<group>";
-		};
-		FA3E02291E29EB5B00F84DAB /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				FA3E02411E29ED6100F84DAB /* Checkout.storyboard */,
-				FA94C5D71E2DA1B50005DE0B /* SWCartTableViewCell.xib */,
 				FA94C5D91E2DA4C60005DE0B /* SWCartTableViewCell.h */,
 				FA94C5DA1E2DA4C60005DE0B /* SWCartTableViewCell.m */,
 			);
-			path = Views;
+			path = Cart;
 			sourceTree = "<group>";
 		};
 		FA3E022A1E29EB6000F84DAB /* Models */ = {
@@ -344,6 +327,10 @@
 				FA94C5C91E2B458F0005DE0B /* SWPinFormatCheckerHelper.m */,
 				FA94C5CB1E2C5EAE0005DE0B /* SWAlertHelper.h */,
 				FA94C5CC1E2C5EAE0005DE0B /* SWAlertHelper.m */,
+				FA94C5DD1E2DDB0E0005DE0B /* SWCartBarButtonItem.h */,
+				FA94C5DE1E2DDB0E0005DE0B /* SWCartBarButtonItem.m */,
+				FA94C5E41E2DE9D80005DE0B /* SWLogoutBarButtonItem.h */,
+				FA94C5E51E2DE9D80005DE0B /* SWLogoutBarButtonItem.m */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -366,6 +353,16 @@
 				FA94C5D51E2D7C510005DE0B /* SWPurchaseOperation.m */,
 			);
 			path = Operations;
+			sourceTree = "<group>";
+		};
+		FA94C5DC1E2DD8670005DE0B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FA94C5E01E2DE1610005DE0B /* SWCartViewController.xib */,
+				FA94C5E21E2DE2950005DE0B /* SWPurchaseConfirmationViewController.xib */,
+				FA94C5D71E2DA1B50005DE0B /* SWCartTableViewCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -450,10 +447,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA3E02421E29ED6100F84DAB /* Checkout.storyboard in Resources */,
 				FA94C5D81E2DA1B50005DE0B /* SWCartTableViewCell.xib in Resources */,
 				FA3E02241E29EB1000F84DAB /* Authentication.storyboard in Resources */,
 				FA3E02051E29E96000F84DAB /* LaunchScreen.storyboard in Resources */,
+				FA94C5E11E2DE1610005DE0B /* SWCartViewController.xib in Resources */,
+				FA94C5E31E2DE2950005DE0B /* SWPurchaseConfirmationViewController.xib in Resources */,
 				FA3E02541E29F76F00F84DAB /* Home.storyboard in Resources */,
 				FA3E02021E29E96000F84DAB /* Assets.xcassets in Resources */,
 				FA3E024E1E29EEA800F84DAB /* SWProductDetailViewController.xib in Resources */,
@@ -482,6 +480,8 @@
 				FA3E02381E29EC7100F84DAB /* SWRegistrationViewController.m in Sources */,
 				FA3E02301E29EB9800F84DAB /* SWUser.m in Sources */,
 				FA3E01FA1E29E96000F84DAB /* AppDelegate.m in Sources */,
+				FA94C5E61E2DE9D80005DE0B /* SWLogoutBarButtonItem.m in Sources */,
+				FA94C5DF1E2DDB0E0005DE0B /* SWCartBarButtonItem.m in Sources */,
 				FA3E01F71E29E96000F84DAB /* main.m in Sources */,
 				FA94C5C41E2B282E0005DE0B /* SWLoginOperation.m in Sources */,
 				FA3E022D1E29EB7D00F84DAB /* SWShoppingCart.m in Sources */,

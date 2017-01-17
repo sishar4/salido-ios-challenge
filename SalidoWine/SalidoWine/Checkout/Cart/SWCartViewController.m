@@ -14,6 +14,7 @@
 #import "SWPinFormatCheckerHelper.h"
 #import "SWPurchaseOperation.h"
 #import "SWProductDetailViewController.h"
+#import "SWLogoutBarButtonItem.h"
 
 @interface SWCartViewController ()
 
@@ -46,6 +47,18 @@
     self.purchaseItemsArray = [[NSMutableArray alloc] init];
     self.purchaseOperationQueue = [[NSOperationQueue alloc] init];
     [self.tableView registerClass:[SWCartTableViewCell class] forCellReuseIdentifier:@"CartTableViewCell"];
+    
+    //Nav Bar setup
+    UIBarButtonItem *backBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(dismissCart:)];
+    self.navigationItem.leftBarButtonItem = backBarButton;
+    SWLogoutBarButtonItem *logoutBarButton = [[SWLogoutBarButtonItem alloc] initFromViewController:self];
+    self.navigationItem.rightBarButtonItem = logoutBarButton;
+    self.navigationItem.title = @"Shopping Cart";
+}
+
+- (IBAction)dismissCart:(id)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)completePurchasePressed:(id)sender {
@@ -177,6 +190,13 @@
         NSLog(@"New total = %@", val);
         [self.totalItemsLabel setText:[NSString stringWithFormat:@"%@", val]];
     }
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    
+    [super viewWillDisappear:animated];
+    
+    [self removeObserver:self.shoppingCart forKeyPath:@"totalItems"];
 }
 
 - (void)didReceiveMemoryWarning {
