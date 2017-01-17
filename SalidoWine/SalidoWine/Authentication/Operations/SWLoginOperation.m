@@ -34,7 +34,7 @@
 - (BOOL)validateUserWithPin:(NSString *)pin {
 
     KeychainWrapper *keychain = [[KeychainWrapper alloc] init];
-    if ([keychain myObjectForKey:@"PIN"]) {
+    if ([[keychain myObjectForKey:(id)kSecValueData] isEqualToString:pin]) {
         return YES;
     }
     

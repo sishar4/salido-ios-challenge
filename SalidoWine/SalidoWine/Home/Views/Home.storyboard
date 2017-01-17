@@ -12,7 +12,7 @@
         <!--SalidoWine List-->
         <scene sceneID="TA0-Jd-sHy">
             <objects>
-                <viewController id="zb4-Em-Cnz" customClass="SWCatalogViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SWCatalogViewController" id="zb4-Em-Cnz" customClass="SWCatalogViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Auq-cb-93j"/>
                         <viewControllerLayoutGuide type="bottom" id="8UN-o8-I1v"/>

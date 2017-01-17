@@ -42,7 +42,7 @@
     }
     
     KeychainWrapper *keychain = [[KeychainWrapper alloc] init];
-    [keychain mySetObject:self.userPin forKey:@"PIN"];
+    [keychain mySetObject:self.userPin forKey:(id)kSecValueData];
 }
 
 @end

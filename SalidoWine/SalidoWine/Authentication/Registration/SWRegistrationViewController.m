@@ -36,7 +36,12 @@
     return YES;
 }
 
-- (IBAction)registerClicked:(id)sender {
+- (IBAction)cancelPressed:(id)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)registerPressed:(id)sender {
     //Check if pin format and input is acceptable
     if ([self validateForm]) {
         [self registerUser];
@@ -44,7 +49,7 @@
         //Display alert telling user to make sure to enter pin in textfield using only numbers
         [SWAlertHelper presentAlertFromViewController:self
                                             withTitle:@"Invalid Input"
-                                           andMessage:@"Pin can only contain numeric (0-9) values."];
+                                           andMessage:@"Pin must be 4 digits and can only contain numeric (0-9) values."];
     }
 }
 
@@ -63,7 +68,7 @@
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             //Load Home.storyboard
             UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Home" bundle:nil];
-            SWCatalogViewController *vc = [sb instantiateInitialViewController];
+            SWCatalogViewController *vc = [sb instantiateViewControllerWithIdentifier:@"SWCatalogViewController"];
             [self presentViewController:vc animated:YES completion:NULL];
         }];    
     }];

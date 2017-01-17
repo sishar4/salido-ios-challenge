@@ -7,11 +7,13 @@
 //
 
 #import "SWCartViewController.h"
+#import "SWCartTableViewCell.h"
 #import "SWShoppingCart.h"
 #import "SWLoginOperation.h"
 #import "SWAlertHelper.h"
 #import "SWPinFormatCheckerHelper.h"
 #import "SWPurchaseOperation.h"
+#import "SWProductDetailViewController.h"
 
 @interface SWCartViewController ()
 
@@ -31,6 +33,7 @@
     }
     
     [self.purchaseItemsArray addObjectsFromArray:self.shoppingCart.itemsArray];
+    [self.tableView reloadData];
 }
 
 - (void)viewDidLoad {
@@ -39,8 +42,10 @@
     
     self.shoppingCart = [SWShoppingCart sharedInstance];
     [self addObserver:self.shoppingCart forKeyPath:@"totalItems" options:NSKeyValueObservingOptionNew context:nil];
+    self.dataController = [[SWCartDataController alloc] init];
     self.purchaseItemsArray = [[NSMutableArray alloc] init];
     self.purchaseOperationQueue = [[NSOperationQueue alloc] init];
+    [self.tableView registerClass:[SWCartTableViewCell class] forCellReuseIdentifier:@"CartTableViewCell"];
 }
 
 - (IBAction)completePurchasePressed:(id)sender {
@@ -107,8 +112,63 @@
     [self.purchaseOperationQueue addOperation:purchaseOperation];
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
+- (void)cellShowDetailButtonPressed:(UIButton *)sender {
+    
+    SWProductDetailViewController *productDetailVC = [[SWProductDetailViewController alloc] initWithNibName:@"SWProductDetailViewController" bundle:nil];
+    //Set productDetailVC.product
+    [self presentViewController:productDetailVC animated:YES completion:nil];
+}
+
+- (void)cellDeleteButtonPressed:(UIButton *)sender {
+    
+    dispatch_queue_t removeItemQueue = dispatch_queue_create("com.salidowine.remove", DISPATCH_QUEUE_SERIAL);
+    [self.dataController removeItemFromCart:@"Stub" withQueue:removeItemQueue andCompletionHandler:^(BOOL success) {
+        
+        if (success) {
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:sender.tag inSection:0];
+            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                                  withRowAnimation:UITableViewRowAnimationTop];
+        }
+    }];
+}
+
+#pragma UITableView Delegate
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return self.purchaseItemsArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    static NSString *cartCellIdentifier = @"CartTableViewCell";
+    
+    SWCartTableViewCell *cell = (SWCartTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cartCellIdentifier];
+    if (cell == nil)
+    {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SWCartTableViewCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+    }
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    //set cell.productImageView
+    //set cell.productNameLabel
+    //set cell.quantityLabel
+    cell.showDetailButton.tag = indexPath.row;
+    [cell.showDetailButton addTarget:self action:@selector(cellShowDetailButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    cell.deleteButton.tag = indexPath.row;
+    [cell.deleteButton addTarget:self action:@selector(cellDeleteButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    
+    return cell;
+}
+
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     NSLog(@"From KVO");
     
     if([keyPath isEqualToString:@"totalItems"])

@@ -34,7 +34,8 @@
         NSLog(@"Purchase Operation cancelled");
     }
     
-    [self.dataController emptyCartWithQueue:purchaseQueue andCompletionHandler:^(BOOL success) {
+    [self.dataController emptyCartWithQueue:purchaseQueue
+                       andCompletionHandler:^(BOOL success) {
         
         self.completionHandler(success);
     }];

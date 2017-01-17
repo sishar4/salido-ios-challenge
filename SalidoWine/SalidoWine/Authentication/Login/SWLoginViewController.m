@@ -43,7 +43,7 @@
         //Display alert telling user to make sure to enter pin in textfield using only numbers
         [SWAlertHelper presentAlertFromViewController:self
                                             withTitle:@"Invalid Input"
-                                           andMessage:@"Pin can only contain numeric (0-9) values."];
+                                           andMessage:@"Pin must be 4 digits and can only contain numeric (0-9) values."];
     }
 }
 
@@ -56,7 +56,7 @@
             if (success) {
                 //Load Home.storyboard
                 UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Home" bundle:nil];
-                SWCatalogViewController *vc = [sb instantiateInitialViewController];
+                SWCatalogViewController *vc = [sb instantiateViewControllerWithIdentifier:@"SWCatalogViewController"];
                 [self presentViewController:vc animated:YES completion:NULL];
             } else {
                 //Display alert that Login failed

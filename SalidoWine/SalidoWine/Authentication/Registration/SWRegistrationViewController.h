@@ -16,7 +16,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *pinTextField;
 @property (weak, nonatomic) IBOutlet UIButton *registerButton;
 
-- (IBAction)registerClicked:(id)sender;
+- (IBAction)registerPressed:(id)sender;
 - (void)registerUser;
+- (IBAction)cancelPressed:(id)sender;
 
 @end

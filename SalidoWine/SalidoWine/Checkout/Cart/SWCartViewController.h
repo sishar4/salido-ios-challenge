@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SWCartDataController.h"
 
-@interface SWCartViewController : UIViewController
+@interface SWCartViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
+@property (strong, nonatomic) SWCartDataController *dataController;
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *totalItemsLabel;
 @property (weak, nonatomic) IBOutlet UIButton *completePurchaseButton;
 - (IBAction)completePurchasePressed:(id)sender;

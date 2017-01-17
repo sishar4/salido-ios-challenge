@@ -33,6 +33,8 @@
 		FA94C5CD1E2C5EAE0005DE0B /* SWAlertHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FA94C5CC1E2C5EAE0005DE0B /* SWAlertHelper.m */; };
 		FA94C5D21E2D490B0005DE0B /* SWCartDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA94C5D11E2D490B0005DE0B /* SWCartDataController.m */; };
 		FA94C5D61E2D7C510005DE0B /* SWPurchaseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FA94C5D51E2D7C510005DE0B /* SWPurchaseOperation.m */; };
+		FA94C5D81E2DA1B50005DE0B /* SWCartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA94C5D71E2DA1B50005DE0B /* SWCartTableViewCell.xib */; };
+		FA94C5DB1E2DA4C60005DE0B /* SWCartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA94C5DA1E2DA4C60005DE0B /* SWCartTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +95,9 @@
 		FA94C5D11E2D490B0005DE0B /* SWCartDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWCartDataController.m; sourceTree = "<group>"; };
 		FA94C5D41E2D7C510005DE0B /* SWPurchaseOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWPurchaseOperation.h; sourceTree = "<group>"; };
 		FA94C5D51E2D7C510005DE0B /* SWPurchaseOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWPurchaseOperation.m; sourceTree = "<group>"; };
+		FA94C5D71E2DA1B50005DE0B /* SWCartTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWCartTableViewCell.xib; sourceTree = "<group>"; };
+		FA94C5D91E2DA4C60005DE0B /* SWCartTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWCartTableViewCell.h; sourceTree = "<group>"; };
+		FA94C5DA1E2DA4C60005DE0B /* SWCartTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWCartTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,6 +253,9 @@
 			isa = PBXGroup;
 			children = (
 				FA3E02411E29ED6100F84DAB /* Checkout.storyboard */,
+				FA94C5D71E2DA1B50005DE0B /* SWCartTableViewCell.xib */,
+				FA94C5D91E2DA4C60005DE0B /* SWCartTableViewCell.h */,
+				FA94C5DA1E2DA4C60005DE0B /* SWCartTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -443,6 +451,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA3E02421E29ED6100F84DAB /* Checkout.storyboard in Resources */,
+				FA94C5D81E2DA1B50005DE0B /* SWCartTableViewCell.xib in Resources */,
 				FA3E02241E29EB1000F84DAB /* Authentication.storyboard in Resources */,
 				FA3E02051E29E96000F84DAB /* LaunchScreen.storyboard in Resources */,
 				FA3E02541E29F76F00F84DAB /* Home.storyboard in Resources */,
@@ -469,6 +478,7 @@
 				FA3E02351E29EC5D00F84DAB /* SWLoginViewController.m in Sources */,
 				FA3E023D1E29ED1900F84DAB /* SWCatalogViewController.m in Sources */,
 				FA94C5C71E2B2A7B0005DE0B /* SWRegistrationOperation.m in Sources */,
+				FA94C5DB1E2DA4C60005DE0B /* SWCartTableViewCell.m in Sources */,
 				FA3E02381E29EC7100F84DAB /* SWRegistrationViewController.m in Sources */,
 				FA3E02301E29EB9800F84DAB /* SWUser.m in Sources */,
 				FA3E01FA1E29E96000F84DAB /* AppDelegate.m in Sources */,
