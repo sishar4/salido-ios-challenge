@@ -9,9 +9,11 @@
 #import "SWFilterListViewController.h"
 #import "SWCartBarButtonItem.h"
 #import "SWLogoutBarButtonItem.h"
+#import "Reachability.h"
 
 @interface SWFilterListViewController ()
 
+@property (strong, nonatomic) Reachability *hostReachable;
 @end
 
 @implementation SWFilterListViewController
@@ -19,6 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.hostReachable = [Reachability reachabilityWithHostName:@"www.apple.com"];
     
     SWCartBarButtonItem *cartBarButton = [[SWCartBarButtonItem alloc] initFromViewController:self];
     SWLogoutBarButtonItem *logoutBarButton = [[SWLogoutBarButtonItem alloc] initFromViewController:self];

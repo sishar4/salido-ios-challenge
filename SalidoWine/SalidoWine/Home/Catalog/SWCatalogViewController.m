@@ -14,9 +14,11 @@
 #import "SWAlertHelper.h"
 #import "SWCatalogCollectionViewCell.h"
 #import "SWProductDetailViewController.h"
+#import "Reachability.h"
 
 @interface SWCatalogViewController ()
 
+@property (strong, nonatomic) Reachability *hostReachable;
 @property (strong, nonatomic) NSMutableArray *productsArray;
 @property (strong, nonatomic) NSOperationQueue *catalogOperationQueue;
 @property (nonatomic, strong) UIActivityIndicatorView *spinner;
@@ -52,8 +54,8 @@
     SWLogoutBarButtonItem *logoutBarButton = [[SWLogoutBarButtonItem alloc] initFromViewController:self];
     self.navigationItem.rightBarButtonItem = logoutBarButton;
     
-    [self displayLoadingIndicator];
-    [self downloadWineList];
+    self.hostReachable = [Reachability reachabilityWithHostName:@"www.apple.com"];
+    [self startDownload];
 }
 
 - (void)displayLoadingIndicator {
@@ -65,6 +67,24 @@
     
     [self.view addSubview:_spinner];
     [_spinner startAnimating];
+}
+
+- (void)startDownload {
+    
+    //Check to see if network connection available
+    if ([self.hostReachable currentReachabilityStatus] != NotReachable) {
+        [self displayLoadingIndicator];
+        [self downloadWineList];
+    } else {
+        //If not, display alert that download failed, give option to retry
+        [SWAlertHelper presentAlertFromViewController:self
+                                            withTitle:@"No Connection"
+                                              message:@"Unable to download. Would you like to try again?"
+                                           andOkBlock:^{
+                                               //Try download once more
+                                               [self startDownload];
+                                           }];
+    }
 }
 
 - (void)downloadWineList {
@@ -86,8 +106,7 @@
                                                       message:@"Unable to retrieve data. Would you like to try again?"
                                                    andOkBlock:^{
                                                        //Display spinner again, and add operation to queue once more
-                                                       [self displayLoadingIndicator];
-                                                       [self.catalogOperationQueue addOperation:downloadOperation];
+                                                       [self startDownload];
                                                    }];
             }
         }];

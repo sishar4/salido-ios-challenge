@@ -42,6 +42,8 @@
 		FA94C5ED1E2EFDC40005DE0B /* SWProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = FA94C5EC1E2EFDC40005DE0B /* SWProduct.m */; };
 		FA94C5EF1E2F0EEB0005DE0B /* SWCatalogCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA94C5EE1E2F0EEB0005DE0B /* SWCatalogCollectionViewCell.xib */; };
 		FA94C5F21E2F0F090005DE0B /* SWCatalogCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA94C5F11E2F0F090005DE0B /* SWCatalogCollectionViewCell.m */; };
+		FA94C5F41E2F464C0005DE0B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA94C5F31E2F464C0005DE0B /* SystemConfiguration.framework */; };
+		FA94C5F71E2F47260005DE0B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = FA94C5F61E2F47260005DE0B /* Reachability.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +119,9 @@
 		FA94C5EE1E2F0EEB0005DE0B /* SWCatalogCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWCatalogCollectionViewCell.xib; sourceTree = "<group>"; };
 		FA94C5F01E2F0F090005DE0B /* SWCatalogCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWCatalogCollectionViewCell.h; sourceTree = "<group>"; };
 		FA94C5F11E2F0F090005DE0B /* SWCatalogCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWCatalogCollectionViewCell.m; sourceTree = "<group>"; };
+		FA94C5F31E2F464C0005DE0B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		FA94C5F51E2F47260005DE0B /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		FA94C5F61E2F47260005DE0B /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA94C5F41E2F464C0005DE0B /* SystemConfiguration.framework in Frameworks */,
 				FA94C5BC1E2B23460005DE0B /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,6 +336,7 @@
 		FA94C5BA1E2B23450005DE0B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FA94C5F31E2F464C0005DE0B /* SystemConfiguration.framework */,
 				FA94C5BB1E2B23460005DE0B /* Security.framework */,
 			);
 			name = Frameworks;
@@ -338,6 +345,8 @@
 		FA94C5C01E2B26740005DE0B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FA94C5F51E2F47260005DE0B /* Reachability.h */,
+				FA94C5F61E2F47260005DE0B /* Reachability.m */,
 				FA94C5BD1E2B25070005DE0B /* KeychainWrapper.h */,
 				FA94C5BE1E2B25070005DE0B /* KeychainWrapper.m */,
 				FA94C5C81E2B458F0005DE0B /* SWPinFormatCheckerHelper.h */,
@@ -503,6 +512,7 @@
 				FA3E02351E29EC5D00F84DAB /* SWLoginViewController.m in Sources */,
 				FA3E023D1E29ED1900F84DAB /* SWCatalogViewController.m in Sources */,
 				FA94C5C71E2B2A7B0005DE0B /* SWRegistrationOperation.m in Sources */,
+				FA94C5F71E2F47260005DE0B /* Reachability.m in Sources */,
 				FA94C5F21E2F0F090005DE0B /* SWCatalogCollectionViewCell.m in Sources */,
 				FA94C5DB1E2DA4C60005DE0B /* SWCartTableViewCell.m in Sources */,
 				FA3E02381E29EC7100F84DAB /* SWRegistrationViewController.m in Sources */,
