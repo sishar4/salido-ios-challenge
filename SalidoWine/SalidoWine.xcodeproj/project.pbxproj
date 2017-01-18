@@ -38,6 +38,10 @@
 		FA94C5E11E2DE1610005DE0B /* SWCartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA94C5E01E2DE1610005DE0B /* SWCartViewController.xib */; };
 		FA94C5E31E2DE2950005DE0B /* SWPurchaseConfirmationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA94C5E21E2DE2950005DE0B /* SWPurchaseConfirmationViewController.xib */; };
 		FA94C5E61E2DE9D80005DE0B /* SWLogoutBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FA94C5E51E2DE9D80005DE0B /* SWLogoutBarButtonItem.m */; };
+		FA94C5EA1E2EF34B0005DE0B /* SWDownloadAllOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FA94C5E91E2EF34B0005DE0B /* SWDownloadAllOperation.m */; };
+		FA94C5ED1E2EFDC40005DE0B /* SWProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = FA94C5EC1E2EFDC40005DE0B /* SWProduct.m */; };
+		FA94C5EF1E2F0EEB0005DE0B /* SWCatalogCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA94C5EE1E2F0EEB0005DE0B /* SWCatalogCollectionViewCell.xib */; };
+		FA94C5F21E2F0F090005DE0B /* SWCatalogCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA94C5F11E2F0F090005DE0B /* SWCatalogCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +110,13 @@
 		FA94C5E21E2DE2950005DE0B /* SWPurchaseConfirmationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWPurchaseConfirmationViewController.xib; sourceTree = "<group>"; };
 		FA94C5E41E2DE9D80005DE0B /* SWLogoutBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWLogoutBarButtonItem.h; sourceTree = "<group>"; };
 		FA94C5E51E2DE9D80005DE0B /* SWLogoutBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWLogoutBarButtonItem.m; sourceTree = "<group>"; };
+		FA94C5E81E2EF34B0005DE0B /* SWDownloadAllOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWDownloadAllOperation.h; sourceTree = "<group>"; };
+		FA94C5E91E2EF34B0005DE0B /* SWDownloadAllOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWDownloadAllOperation.m; sourceTree = "<group>"; };
+		FA94C5EB1E2EFDC40005DE0B /* SWProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWProduct.h; sourceTree = "<group>"; };
+		FA94C5EC1E2EFDC40005DE0B /* SWProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWProduct.m; sourceTree = "<group>"; };
+		FA94C5EE1E2F0EEB0005DE0B /* SWCatalogCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWCatalogCollectionViewCell.xib; sourceTree = "<group>"; };
+		FA94C5F01E2F0F090005DE0B /* SWCatalogCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWCatalogCollectionViewCell.h; sourceTree = "<group>"; };
+		FA94C5F11E2F0F090005DE0B /* SWCatalogCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWCatalogCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +218,7 @@
 			children = (
 				FA3E02531E29F76F00F84DAB /* Home.storyboard */,
 				FA3E02211E29EAB400F84DAB /* Models */,
+				FA94C5E71E2EF2E20005DE0B /* Operations */,
 				FA3E02391E29ECED00F84DAB /* Catalog */,
 				FA3E023A1E29ECF200F84DAB /* ProductDetail */,
 			);
@@ -225,6 +237,8 @@
 		FA3E02211E29EAB400F84DAB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FA94C5EB1E2EFDC40005DE0B /* SWProduct.h */,
+				FA94C5EC1E2EFDC40005DE0B /* SWProduct.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -280,6 +294,8 @@
 				FA3E023C1E29ED1900F84DAB /* SWCatalogViewController.m */,
 				FA3E02501E29F24600F84DAB /* SWFilterListViewController.h */,
 				FA3E02511E29F24600F84DAB /* SWFilterListViewController.m */,
+				FA94C5F01E2F0F090005DE0B /* SWCatalogCollectionViewCell.h */,
+				FA94C5F11E2F0F090005DE0B /* SWCatalogCollectionViewCell.m */,
 			);
 			path = Catalog;
 			sourceTree = "<group>";
@@ -306,6 +322,7 @@
 		FA3E024F1E29EEE100F84DAB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FA94C5EE1E2F0EEB0005DE0B /* SWCatalogCollectionViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -363,6 +380,15 @@
 				FA94C5D71E2DA1B50005DE0B /* SWCartTableViewCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		FA94C5E71E2EF2E20005DE0B /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				FA94C5E81E2EF34B0005DE0B /* SWDownloadAllOperation.h */,
+				FA94C5E91E2EF34B0005DE0B /* SWDownloadAllOperation.m */,
+			);
+			path = Operations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -455,6 +481,7 @@
 				FA3E02541E29F76F00F84DAB /* Home.storyboard in Resources */,
 				FA3E02021E29E96000F84DAB /* Assets.xcassets in Resources */,
 				FA3E024E1E29EEA800F84DAB /* SWProductDetailViewController.xib in Resources */,
+				FA94C5EF1E2F0EEB0005DE0B /* SWCatalogCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +503,7 @@
 				FA3E02351E29EC5D00F84DAB /* SWLoginViewController.m in Sources */,
 				FA3E023D1E29ED1900F84DAB /* SWCatalogViewController.m in Sources */,
 				FA94C5C71E2B2A7B0005DE0B /* SWRegistrationOperation.m in Sources */,
+				FA94C5F21E2F0F090005DE0B /* SWCatalogCollectionViewCell.m in Sources */,
 				FA94C5DB1E2DA4C60005DE0B /* SWCartTableViewCell.m in Sources */,
 				FA3E02381E29EC7100F84DAB /* SWRegistrationViewController.m in Sources */,
 				FA3E02301E29EB9800F84DAB /* SWUser.m in Sources */,
@@ -489,6 +517,8 @@
 				FA3E02521E29F24600F84DAB /* SWFilterListViewController.m in Sources */,
 				FA3E02461E29EDC300F84DAB /* SWCartViewController.m in Sources */,
 				FA94C5BF1E2B25070005DE0B /* KeychainWrapper.m in Sources */,
+				FA94C5ED1E2EFDC40005DE0B /* SWProduct.m in Sources */,
+				FA94C5EA1E2EF34B0005DE0B /* SWDownloadAllOperation.m in Sources */,
 				FA94C5CD1E2C5EAE0005DE0B /* SWAlertHelper.m in Sources */,
 				FA94C5CA1E2B458F0005DE0B /* SWPinFormatCheckerHelper.m in Sources */,
 				FA3E024A1E29EDF900F84DAB /* SWPurchaseConfirmationViewController.m in Sources */,

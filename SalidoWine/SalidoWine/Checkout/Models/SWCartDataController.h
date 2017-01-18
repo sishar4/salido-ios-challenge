@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SWProduct.h"
 
 @interface SWCartDataController : NSObject
 
-- (void)addItemToCart:(NSString *)itemName withQuantity:(NSInteger)quantity Queue:(id)dispatch_queue_t_queue andCompletionHandler:(void (^)(BOOL))completionHandler;
-- (void)removeItemFromCart:(NSString *)itemName withQueue:(id)dispatch_queue_t_queue andCompletionHandler:(void (^)(BOOL))completionHandler;
+- (void)addItemToCart:(SWProduct *)product withQuantity:(NSInteger)quantity queue:(id)dispatch_queue_t_queue andCompletionHandler:(void (^)(BOOL))completionHandler;
+- (void)removeItemFromCart:(SWProduct *)product withQueue:(id)dispatch_queue_t_queue andCompletionHandler:(void (^)(BOOL))completionHandler;
 - (void)emptyCartWithQueue:(id)dispatch_queue_t_queue andCompletionHandler:(void (^)(BOOL))completionHandler;
 
 @end

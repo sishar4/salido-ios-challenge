@@ -35,17 +35,48 @@
                                     <segue destination="Dvo-wX-5YW" kind="show" id="23S-c7-10u"/>
                                 </connections>
                             </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nck-T0-TYx">
+                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ger-eo-TxB">
+                                    <size key="itemSize" width="320" height="120"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="5y4-Hb-tLU">
+                                        <rect key="frame" x="28" y="0.0" width="320" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="zb4-Em-Cnz" id="91n-T6-fA8"/>
+                                    <outlet property="delegate" destination="zb4-Em-Cnz" id="dyk-xk-S2A"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="nck-T0-TYx" firstAttribute="leading" secondItem="PFU-9w-3ay" secondAttribute="leading" id="9BM-FS-1rC"/>
                             <constraint firstItem="cTg-8L-cR7" firstAttribute="top" secondItem="Auq-cb-93j" secondAttribute="bottom" constant="8" id="BR0-2p-X3N"/>
                             <constraint firstItem="cTg-8L-cR7" firstAttribute="leading" secondItem="PFU-9w-3ay" secondAttribute="leading" constant="16" id="BlJ-gm-maV"/>
+                            <constraint firstItem="nck-T0-TYx" firstAttribute="top" secondItem="cTg-8L-cR7" secondAttribute="bottom" constant="8" id="I28-zF-Hja"/>
+                            <constraint firstItem="8UN-o8-I1v" firstAttribute="top" secondItem="nck-T0-TYx" secondAttribute="bottom" id="aBc-gk-zb7"/>
                             <constraint firstAttribute="trailing" secondItem="cTg-8L-cR7" secondAttribute="trailing" constant="16" id="iq0-KF-S32"/>
+                            <constraint firstAttribute="trailing" secondItem="nck-T0-TYx" secondAttribute="trailing" id="lzZ-uZ-Uac"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="SalidoWine List" id="yKy-Ap-Czo">
                         <barButtonItem key="backBarButtonItem" title="Done" id="dNn-jh-9Ie"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="nck-T0-TYx" id="vmZ-ck-KzC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r2Z-ON-Io1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

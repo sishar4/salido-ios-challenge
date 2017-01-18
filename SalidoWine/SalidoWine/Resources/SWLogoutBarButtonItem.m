@@ -25,6 +25,10 @@
 
 - (void)goToLogin {
     
+    //Reset flag for catalog download having been completed
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"downloadCompleted"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     //Load Authentication.storyboard
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Authentication" bundle:nil];
     SWLoginViewController *viewController = [sb instantiateViewControllerWithIdentifier:@"SWLoginViewController"];

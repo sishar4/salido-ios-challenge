@@ -9,6 +9,7 @@
 #import "SWCartViewController.h"
 #import "SWCartTableViewCell.h"
 #import "SWShoppingCart.h"
+#import "SWProduct.h"
 #import "SWLoginOperation.h"
 #import "SWAlertHelper.h"
 #import "SWPinFormatCheckerHelper.h"
@@ -30,7 +31,12 @@
 - (void)updateUI {
     
     [self.tableView reloadData];
-    [self.totalItemsLabel setText:[NSString stringWithFormat:@"%lu items", (unsigned long)self.purchaseItemsArray.count]];
+    
+    __block int counter = 0;
+    [self.shoppingCart.items enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        counter += [obj intValue];
+    }];
+    [self.totalItemsLabel setText:[NSString stringWithFormat:@"%d items", counter]];
     
     //Make completePurchaseButton inactive if cart is empty
     if (self.purchaseItemsArray.count == 0) {
@@ -56,7 +62,6 @@
     // Do any additional setup after loading the view.
     
     self.shoppingCart = [SWShoppingCart sharedInstance];
-    [self addObserver:self.shoppingCart forKeyPath:@"totalItems" options:NSKeyValueObservingOptionNew context:nil];
     self.dataController = [[SWCartDataController alloc] init];
     self.purchaseItemsArray = [[NSMutableArray alloc] init];
     self.purchaseOperationQueue = [[NSOperationQueue alloc] init];
@@ -151,8 +156,9 @@
 
 - (void)cellDeleteButtonPressed:(UIButton *)sender {
     
+    SWProduct *product = (SWProduct *)[self.purchaseItemsArray objectAtIndex:sender.tag];
     dispatch_queue_t removeItemQueue = dispatch_queue_create("com.salidowine.remove", DISPATCH_QUEUE_SERIAL);
-    [self.dataController removeItemFromCart:@"Stub" withQueue:removeItemQueue andCompletionHandler:^(BOOL success) {
+    [self.dataController removeItemFromCart:product withQueue:removeItemQueue andCompletionHandler:^(BOOL success) {
         
         if (success) {
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:sender.tag inSection:0];
@@ -163,7 +169,7 @@
     }];
 }
 
-#pragma UITableView Delegate
+#pragma mark - UITableView Delegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
@@ -186,35 +192,20 @@
         cell = [nib objectAtIndex:0];
     }
     
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    SWProduct *product = (SWProduct *)[self.purchaseItemsArray objectAtIndex:indexPath.row];
+    [cell.productNameLabel setText:product.name];
+    
+    NSNumber *count = [self.shoppingCart.items objectForKey:product.name];
+    [cell.quantityLabel setText:[NSString stringWithFormat:@"%d", [count intValue]]];
+    
     //set cell.productImageView
-    //set cell.productNameLabel
-    //set cell.quantityLabel
+
     cell.showDetailButton.tag = indexPath.row;
     [cell.showDetailButton addTarget:self action:@selector(cellShowDetailButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     cell.deleteButton.tag = indexPath.row;
     [cell.deleteButton addTarget:self action:@selector(cellDeleteButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     
     return cell;
-}
-
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    NSLog(@"From KVO");
-    
-    if([keyPath isEqualToString:@"totalItems"])
-    {
-        id val = [change objectForKey:NSKeyValueChangeNewKey];
-        NSLog(@"New total = %@", val);
-        [self.totalItemsLabel setText:[NSString stringWithFormat:@"%@", val]];
-    }
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    
-    [super viewWillDisappear:animated];
-    
-    [self removeObserver:self.shoppingCart forKeyPath:@"totalItems"];
 }
 
 - (void)didReceiveMemoryWarning {

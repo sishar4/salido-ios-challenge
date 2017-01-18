@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="catalogCollectionCell" id="Y1E-Yy-y0B" customClass="SWCatalogCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S79-bk-DVO">
+                        <rect key="frame" x="8" y="8" width="104" height="104"/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xaV-u0-6JB">
+                        <rect key="frame" x="240" y="76" width="72" height="36"/>
+                        <color key="backgroundColor" red="0.35686274509999999" green="0.71372549019999998" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="36" id="796-vl-27m"/>
+                            <constraint firstAttribute="width" constant="72" id="e4t-vn-k3o"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                        <state key="normal" title="+ Add">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="addToCartPressed:" destination="Y1E-Yy-y0B" eventType="touchUpInside" id="p83-Vm-XNl"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ii-wt-mad">
+                        <rect key="frame" x="120" y="8" width="192" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="192" id="o0L-Zq-Q01"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="S79-bk-DVO" secondAttribute="bottom" constant="8" id="Cdr-1O-4bv"/>
+                <constraint firstAttribute="bottom" secondItem="xaV-u0-6JB" secondAttribute="bottom" constant="8" id="Hys-bl-KwP"/>
+                <constraint firstItem="0Ii-wt-mad" firstAttribute="leading" secondItem="S79-bk-DVO" secondAttribute="trailing" constant="8" id="KZ1-QV-xIo"/>
+                <constraint firstItem="S79-bk-DVO" firstAttribute="leading" secondItem="Y1E-Yy-y0B" secondAttribute="leading" constant="8" id="OAE-8G-9Ho"/>
+                <constraint firstAttribute="trailing" secondItem="0Ii-wt-mad" secondAttribute="trailing" constant="8" id="U8d-YI-C9A"/>
+                <constraint firstItem="xaV-u0-6JB" firstAttribute="top" secondItem="0Ii-wt-mad" secondAttribute="bottom" constant="8" id="Wgm-Jn-sKc"/>
+                <constraint firstItem="S79-bk-DVO" firstAttribute="top" secondItem="Y1E-Yy-y0B" secondAttribute="top" constant="8" id="akY-vx-eFD"/>
+                <constraint firstAttribute="trailing" secondItem="xaV-u0-6JB" secondAttribute="trailing" constant="8" id="jSm-kf-ZSK"/>
+                <constraint firstItem="0Ii-wt-mad" firstAttribute="top" secondItem="Y1E-Yy-y0B" secondAttribute="top" constant="8" id="sWN-TD-UZw"/>
+            </constraints>
+            <size key="customSize" width="320" height="120"/>
+            <connections>
+                <outlet property="addToCartButton" destination="xaV-u0-6JB" id="mbr-WZ-T0e"/>
+                <outlet property="imageView" destination="S79-bk-DVO" id="TbS-cf-JyV"/>
+                <outlet property="nameLabel" destination="0Ii-wt-mad" id="tnn-YH-Gbr"/>
+            </connections>
+            <point key="canvasLocation" x="-18" y="141"/>
+        </collectionViewCell>
+    </objects>
+</document>
