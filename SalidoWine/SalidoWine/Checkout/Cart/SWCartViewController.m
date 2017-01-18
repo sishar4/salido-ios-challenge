@@ -24,6 +24,7 @@
 @property (strong, nonatomic) NSString *pinCopy;
 @property (strong, nonatomic) NSMutableArray *purchaseItemsArray;
 @property (strong, nonatomic) NSOperationQueue *purchaseOperationQueue;
+@property (strong, nonatomic) NSCache *imageCache;
 @end
 
 @implementation SWCartViewController
@@ -64,8 +65,11 @@
     self.shoppingCart = [SWShoppingCart sharedInstance];
     self.dataController = [[SWCartDataController alloc] init];
     self.purchaseItemsArray = [[NSMutableArray alloc] init];
+    self.imageCache = [[NSCache alloc] init];
     self.purchaseOperationQueue = [[NSOperationQueue alloc] init];
     [self.tableView registerClass:[SWCartTableViewCell class] forCellReuseIdentifier:@"CartTableViewCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"SWCartTableViewCell" bundle:nil] forCellReuseIdentifier:@"CartTableViewCell"];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     //Nav Bar setup
     UIBarButtonItem *backBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(dismissCart:)];
@@ -131,7 +135,6 @@
             if (success) {
                 //Load ConfirmPurchase view
                 SWPurchaseConfirmationViewController *cartVC = [[SWPurchaseConfirmationViewController alloc] initWithNibName:@"SWPurchaseConfirmationViewController" bundle:nil];
-//                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:cartVC];
                 [self presentViewController:cartVC animated:YES completion:nil];
             } else {
                 //Display alert that Purchase failed
@@ -196,9 +199,30 @@
     [cell.productNameLabel setText:product.name];
     
     NSNumber *count = [self.shoppingCart.items objectForKey:product.name];
-    [cell.quantityLabel setText:[NSString stringWithFormat:@"%d", [count intValue]]];
+    [cell.quantityLabel setText:[NSString stringWithFormat:@"Quantity: %d", [count intValue]]];
     
-    //set cell.productImageView
+    cell.productImageView.image = nil;
+    
+    //Check if product image was previously cached
+    if ([self.imageCache objectForKey:product.imageURL]) {
+        [cell.productImageView setImage:[self.imageCache objectForKey:product.imageURL]];
+    } else {
+        //If not, asynchronously download image from url
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            //Download image asynchronously
+            UIImage * img = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:product.imageURL]]];
+            [self.imageCache setObject:img forKey:product.imageURL];
+            if (img) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    SWCartTableViewCell *cell = (id)[tableView cellForRowAtIndexPath:indexPath];
+                    if (cell) {
+                        [cell.productImageView setImage:img];
+                    }
+                });
+            }
+        });
+    }
 
     cell.showDetailButton.tag = indexPath.row;
     [cell.showDetailButton addTarget:self action:@selector(cellShowDetailButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
@@ -206,6 +230,11 @@
     [cell.deleteButton addTarget:self action:@selector(cellDeleteButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return 120.0;
 }
 
 - (void)didReceiveMemoryWarning {
