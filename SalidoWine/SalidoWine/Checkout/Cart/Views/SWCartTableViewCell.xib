@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ufM-F7-Qs8" id="RPQ-LN-1kF">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="119"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P54-4z-cXI">
@@ -51,27 +51,16 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zcv-xN-BUV">
-                        <rect key="frame" x="8" y="28" width="64" height="64"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="64" id="853-7p-78N"/>
-                            <constraint firstAttribute="width" constant="64" id="fqF-Zp-J1H"/>
-                        </constraints>
-                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="Fes-ss-SJe" secondAttribute="trailing" constant="8" id="3VB-Dm-uSC"/>
-                    <constraint firstItem="Zcv-xN-BUV" firstAttribute="leading" secondItem="RPQ-LN-1kF" secondAttribute="leading" constant="8" id="4oD-hU-ThI"/>
                     <constraint firstItem="Fes-ss-SJe" firstAttribute="top" secondItem="RPQ-LN-1kF" secondAttribute="top" constant="8" id="5eE-xF-wkA"/>
                     <constraint firstItem="P54-4z-cXI" firstAttribute="top" secondItem="EHV-Cd-Mg5" secondAttribute="top" id="8S3-jQ-Kc8"/>
                     <constraint firstItem="ei8-jc-3y4" firstAttribute="centerY" secondItem="RPQ-LN-1kF" secondAttribute="centerY" id="8WG-Ub-eTd"/>
                     <constraint firstAttribute="trailing" secondItem="P54-4z-cXI" secondAttribute="trailing" constant="8" id="EAc-3f-CEZ"/>
                     <constraint firstItem="Fes-ss-SJe" firstAttribute="leading" secondItem="RPQ-LN-1kF" secondAttribute="leading" constant="80" id="MT9-h5-U5F"/>
-                    <constraint firstItem="Zcv-xN-BUV" firstAttribute="centerY" secondItem="RPQ-LN-1kF" secondAttribute="centerY" id="SjF-D9-dYm"/>
                     <constraint firstItem="P54-4z-cXI" firstAttribute="centerY" secondItem="RPQ-LN-1kF" secondAttribute="centerY" id="XOo-NS-F4y"/>
                     <constraint firstItem="P54-4z-cXI" firstAttribute="leading" secondItem="EHV-Cd-Mg5" secondAttribute="trailing" constant="8" id="dcg-Tb-XeN"/>
-                    <constraint firstItem="EHV-Cd-Mg5" firstAttribute="leading" secondItem="Zcv-xN-BUV" secondAttribute="trailing" constant="8" id="kN9-bD-B9a"/>
                     <constraint firstItem="EHV-Cd-Mg5" firstAttribute="leading" secondItem="ei8-jc-3y4" secondAttribute="trailing" constant="8" id="lK4-aw-ZQP"/>
                     <constraint firstItem="ei8-jc-3y4" firstAttribute="leading" secondItem="RPQ-LN-1kF" secondAttribute="leading" constant="8" id="yZN-h4-FA3"/>
                 </constraints>
@@ -81,7 +70,6 @@
                 <outlet property="productImageView" destination="ei8-jc-3y4" id="5cJ-RC-De2"/>
                 <outlet property="productNameLabel" destination="Fes-ss-SJe" id="aPA-jq-sSO"/>
                 <outlet property="quantityLabel" destination="EHV-Cd-Mg5" id="BKT-Ah-V7I"/>
-                <outlet property="showDetailButton" destination="Zcv-xN-BUV" id="6Hg-mk-Csp"/>
             </connections>
             <point key="canvasLocation" x="-16.5" y="45"/>
         </tableViewCell>

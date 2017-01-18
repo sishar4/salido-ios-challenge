@@ -150,13 +150,6 @@
     [self.purchaseOperationQueue addOperation:purchaseOperation];
 }
 
-- (void)cellShowDetailButtonPressed:(UIButton *)sender {
-    
-    SWProductDetailViewController *productDetailVC = [[SWProductDetailViewController alloc] initWithNibName:@"SWProductDetailViewController" bundle:nil];
-    //Set productDetailVC.product
-    [self presentViewController:productDetailVC animated:YES completion:nil];
-}
-
 - (void)cellDeleteButtonPressed:(UIButton *)sender {
     
     SWProduct *product = (SWProduct *)[self.purchaseItemsArray objectAtIndex:sender.tag];
@@ -164,9 +157,10 @@
     [self.dataController removeItemFromCart:product withQueue:removeItemQueue andCompletionHandler:^(BOOL success) {
         
         if (success) {
+            [self.purchaseItemsArray removeObjectAtIndex:sender.tag];
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:sender.tag inSection:0];
             [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-                                  withRowAnimation:UITableViewRowAnimationTop];
+                                  withRowAnimation:UITableViewRowAnimationLeft];
             [self updateUI];
         }
     }];
@@ -224,12 +218,23 @@
         });
     }
 
-    cell.showDetailButton.tag = indexPath.row;
-    [cell.showDetailButton addTarget:self action:@selector(cellShowDetailButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     cell.deleteButton.tag = indexPath.row;
     [cell.deleteButton addTarget:self action:@selector(cellDeleteButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    SWCartTableViewCell *cell = (id)[tableView cellForRowAtIndexPath:indexPath];
+    SWProduct *product = (SWProduct *)[self.purchaseItemsArray objectAtIndex:indexPath.row];
+    
+    SWProductDetailViewController *productDetailVC = [[SWProductDetailViewController alloc] initWithNibName:@"SWProductDetailViewController" bundle:nil];
+    productDetailVC.product = product;
+    productDetailVC.productImage = cell.productImageView.image;
+    [self presentViewController:productDetailVC animated:YES completion:nil];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
