@@ -8,6 +8,7 @@
 
 #import "SWDownloadAllOperation.h"
 #import "SWProduct.h"
+#import "defines.h"
 
 @implementation SWDownloadAllOperation
 
@@ -30,7 +31,7 @@
     NSURLSessionConfiguration *urlSessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *urlSession = [NSURLSession sessionWithConfiguration:urlSessionConfig delegate:nil delegateQueue:nil];
     
-    NSString *urlString = @"http://services.wine.com/api/beta2/service.svc/JSON/catalog?apikey=4ab32cbecda2b85a27a895ffb2d2d967";
+    NSString *urlString = [NSString stringWithFormat:@"%@catalog?apikey=%@", kBaseUrl, kApiKey];
     NSURL *url = [NSURL URLWithString:urlString];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
     [urlRequest setHTTPMethod:@"GET"];
@@ -63,8 +64,6 @@
                                                   [resultsArray addObject:productToAdd];
                                               }
                                               
-                                              [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"downloadCompleted"];
-                                              //                                                  [[NSUserDefaults standardUserDefaults] synchronize];
                                               self.completionHandler([resultsArray copy], YES);
                                           }
                                           else {

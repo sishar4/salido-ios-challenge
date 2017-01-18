@@ -122,6 +122,7 @@
 		FA94C5F31E2F464C0005DE0B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		FA94C5F51E2F47260005DE0B /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		FA94C5F61E2F47260005DE0B /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		FA94C5F81E2F4EC90005DE0B /* defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = defines.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -345,6 +346,7 @@
 		FA94C5C01E2B26740005DE0B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FA94C5F81E2F4EC90005DE0B /* defines.h */,
 				FA94C5F51E2F47260005DE0B /* Reachability.h */,
 				FA94C5F61E2F47260005DE0B /* Reachability.m */,
 				FA94C5BD1E2B25070005DE0B /* KeychainWrapper.h */,
