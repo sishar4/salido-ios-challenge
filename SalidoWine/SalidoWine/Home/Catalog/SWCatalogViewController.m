@@ -71,27 +71,26 @@
     
     SWDownloadAllOperation *downloadOperation = [[SWDownloadAllOperation alloc] initWithCompletionHandler:^(NSArray *results, BOOL success) {
         
-        [_spinner stopAnimating];
-        
-        if (success && results.count > 0) {
-            NSLog(@"Results Array == %@", results);
-            for (SWProduct *prod in results) {
-                NSLog(@"URL == %@", prod.imageURL);
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            
+            [_spinner stopAnimating];
+            
+            if (success && results.count > 0) {
+                [self.productsArray removeAllObjects];
+                [self.productsArray addObjectsFromArray:results];
+                [self.collectionView reloadData];
+            } else {
+                //Display alert that download failed, give option to retry
+                [SWAlertHelper presentAlertFromViewController:self
+                                                    withTitle:@"Download Failed"
+                                                      message:@"Unable to retrieve data. Would you like to try again?"
+                                                   andOkBlock:^{
+                                                       //Display spinner again, and add operation to queue once more
+                                                       [self displayLoadingIndicator];
+                                                       [self.catalogOperationQueue addOperation:downloadOperation];
+                                                   }];
             }
-            [self.productsArray removeAllObjects];
-            [self.productsArray addObjectsFromArray:results];
-            [self.collectionView reloadData];
-        } else {
-            //Display alert that download failed, give option to retry
-            [SWAlertHelper presentAlertFromViewController:self
-                                                withTitle:@"Download Failed"
-                                                  message:@"Unable to retrieve data. Would you like to try again?"
-                                               andOkBlock:^{
-                //Display spinner again, and add operation to queue once more
-                [self displayLoadingIndicator];
-                [self.catalogOperationQueue addOperation:downloadOperation];
-            }];
-        }
+        }];
     }];
     
     [self.catalogOperationQueue addOperation:downloadOperation];
@@ -147,13 +146,11 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-    SWCatalogCollectionViewCell *cell = (id)[collectionView cellForItemAtIndexPath:indexPath];
+
     SWProduct *product = (SWProduct *)[self.productsArray objectAtIndex:indexPath.row];
     
     SWProductDetailViewController *productDetailVC = [[SWProductDetailViewController alloc] initWithNibName:@"SWProductDetailViewController" bundle:nil];
     productDetailVC.product = product;
-    productDetailVC.productImage = cell.imageView.image;
     [self presentViewController:productDetailVC animated:YES completion:nil];
 }
 

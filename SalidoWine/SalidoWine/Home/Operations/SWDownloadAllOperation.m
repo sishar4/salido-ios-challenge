@@ -63,16 +63,12 @@
                                                   [resultsArray addObject:productToAdd];
                                               }
                                               
-                                              dispatch_async(dispatch_get_main_queue(), ^ {
-//                                                  [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"downloadCompleted"];
-//                                                  [[NSUserDefaults standardUserDefaults] synchronize];
-                                                  self.completionHandler([resultsArray copy], YES);
-                                              });
+                                              [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"downloadCompleted"];
+                                              //                                                  [[NSUserDefaults standardUserDefaults] synchronize];
+                                              self.completionHandler([resultsArray copy], YES);
                                           }
                                           else {
-                                              dispatch_async(dispatch_get_main_queue(), ^ {
-                                                  self.completionHandler(nil, NO);
-                                              });
+                                              self.completionHandler(nil, NO);
                                           }
                                       }];
     

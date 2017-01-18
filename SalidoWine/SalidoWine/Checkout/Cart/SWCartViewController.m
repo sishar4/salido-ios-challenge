@@ -227,13 +227,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    SWCartTableViewCell *cell = (id)[tableView cellForRowAtIndexPath:indexPath];
+
     SWProduct *product = (SWProduct *)[self.purchaseItemsArray objectAtIndex:indexPath.row];
     
     SWProductDetailViewController *productDetailVC = [[SWProductDetailViewController alloc] initWithNibName:@"SWProductDetailViewController" bundle:nil];
     productDetailVC.product = product;
-    productDetailVC.productImage = cell.productImageView.image;
     [self presentViewController:productDetailVC animated:YES completion:nil];
 }
 
