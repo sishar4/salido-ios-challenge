@@ -33,7 +33,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# of items" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JiB-bC-t2f">
-                    <rect key="frame" x="66" y="84" width="293" height="35"/>
+                    <rect key="frame" x="66" y="84" width="140" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="FhF-12-e5W"/>
                     </constraints>
@@ -63,21 +63,38 @@
                         <action selector="completePurchasePressed:" destination="-1" eventType="touchUpInside" id="MqH-FN-k0I"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="07b-dY-BBy">
+                    <rect key="frame" x="214" y="84" width="145" height="35"/>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="145" id="ASn-mC-fPA"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                    <state key="normal" title="Back To Catalog">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="backToBrowse:" destination="-1" eventType="touchUpInside" id="EG1-u4-pKh"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="dmp-3b-M4q" secondAttribute="trailing" constant="16" id="4k9-Dd-AyU"/>
                 <constraint firstItem="JiB-bC-t2f" firstAttribute="leading" secondItem="WQ2-3S-qGf" secondAttribute="trailing" id="5bO-af-xXI"/>
                 <constraint firstItem="Ty9-dr-JMC" firstAttribute="top" secondItem="JiB-bC-t2f" secondAttribute="bottom" constant="8" id="8bR-Zq-HzC"/>
+                <constraint firstItem="07b-dY-BBy" firstAttribute="leading" secondItem="JiB-bC-t2f" secondAttribute="trailing" constant="8" id="A8C-M9-kkW"/>
                 <constraint firstItem="Ty9-dr-JMC" firstAttribute="leading" secondItem="64b-xX-CE0" secondAttribute="leading" constant="16" id="DPN-O6-Cyq"/>
+                <constraint firstAttribute="trailing" secondItem="07b-dY-BBy" secondAttribute="trailing" constant="16" id="Er0-VF-Sm0"/>
                 <constraint firstAttribute="bottom" secondItem="dmp-3b-M4q" secondAttribute="bottom" constant="20" id="Gfd-0G-d97"/>
                 <constraint firstItem="WQ2-3S-qGf" firstAttribute="top" secondItem="64b-xX-CE0" secondAttribute="top" constant="84" id="Jx0-g2-zNu"/>
                 <constraint firstItem="JiB-bC-t2f" firstAttribute="top" secondItem="64b-xX-CE0" secondAttribute="top" constant="84" id="LIf-6m-zgu"/>
+                <constraint firstItem="07b-dY-BBy" firstAttribute="top" secondItem="64b-xX-CE0" secondAttribute="top" constant="84" id="VVU-Ho-vPO"/>
                 <constraint firstAttribute="trailing" secondItem="Ty9-dr-JMC" secondAttribute="trailing" constant="16" id="WXU-lX-eCR"/>
                 <constraint firstItem="dmp-3b-M4q" firstAttribute="leading" secondItem="64b-xX-CE0" secondAttribute="leading" constant="16" id="Y9Q-1h-jDm"/>
                 <constraint firstItem="WQ2-3S-qGf" firstAttribute="leading" secondItem="64b-xX-CE0" secondAttribute="leading" constant="16" id="nzI-Kg-bcv"/>
-                <constraint firstAttribute="trailing" secondItem="JiB-bC-t2f" secondAttribute="trailing" constant="16" id="sLY-Q2-Js6"/>
                 <constraint firstItem="dmp-3b-M4q" firstAttribute="top" secondItem="Ty9-dr-JMC" secondAttribute="bottom" constant="8" id="vbl-4p-Kt8"/>
+                <constraint firstItem="Ty9-dr-JMC" firstAttribute="top" secondItem="07b-dY-BBy" secondAttribute="bottom" constant="8" id="ySN-v1-LGa"/>
             </constraints>
             <point key="canvasLocation" x="33.5" y="113.5"/>
         </view>

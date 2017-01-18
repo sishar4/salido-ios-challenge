@@ -17,6 +17,7 @@
 #import "SWProductDetailViewController.h"
 #import "SWLogoutBarButtonItem.h"
 #import "SWPurchaseConfirmationViewController.h"
+#import "SWCatalogViewController.h"
 
 @interface SWCartViewController ()
 
@@ -79,6 +80,16 @@
 - (IBAction)dismissCart:(id)sender {
     
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)backToBrowse:(id)sender {
+    
+    //Load Home.storyboard
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Home" bundle:nil];
+    SWCatalogViewController *vc = [sb instantiateViewControllerWithIdentifier:@"SWCatalogViewController"];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:vc];
+    navController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:navController animated:YES completion:NULL];
 }
 
 - (IBAction)completePurchasePressed:(id)sender {
