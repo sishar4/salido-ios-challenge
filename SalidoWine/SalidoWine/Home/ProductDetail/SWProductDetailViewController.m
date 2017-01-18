@@ -8,6 +8,8 @@
 
 #import "SWProductDetailViewController.h"
 #import "SWCartDataController.h"
+#import "SWLogoutBarButtonItem.h"
+#import "SWCartBarButtonItem.h"
 
 @interface SWProductDetailViewController ()
 @property (strong, nonatomic) NSOperationQueue *operationQueue;
@@ -21,21 +23,24 @@
     
     [self.productNameLabel setText:self.product.name];
     
-    UILabel *descriptionLabel = [[UILabel alloc] initWithFrame:self.scrollView.bounds];
-    [descriptionLabel setNumberOfLines:0];
-    
-    NSBlockOperation *textFormatBlock = [NSBlockOperation blockOperationWithBlock:^{
-        
-        NSAttributedString *descriptionString = [[NSAttributedString alloc] initWithData:[self.product.productDescription dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: [NSNumber numberWithInt:NSUTF8StringEncoding]} documentAttributes:nil error:nil];
-        
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+    if (self.product.productDescription.length > 0) {
+        NSBlockOperation *textFormatBlock = [NSBlockOperation blockOperationWithBlock:^{
             
-            [descriptionLabel setText:[descriptionString string]];
-            [descriptionLabel sizeToFit];
-            [self.scrollView addSubview:descriptionLabel];
-            [self.scrollView setContentSize:CGSizeMake(self.scrollView.bounds.size.width, descriptionLabel.frame.size.height)];
+            NSAttributedString *descriptionString = [[NSAttributedString alloc] initWithData:[self.product.productDescription dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: [NSNumber numberWithInt:NSUTF8StringEncoding]} documentAttributes:nil error:nil];
+            
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                
+                UILabel *descriptionLabel = [[UILabel alloc] initWithFrame:self.scrollView.bounds];
+                [descriptionLabel setNumberOfLines:0];
+                [descriptionLabel setText:[descriptionString string]];
+                [descriptionLabel sizeToFit];
+                [self.scrollView addSubview:descriptionLabel];
+                [self.scrollView setContentSize:CGSizeMake(self.scrollView.bounds.size.width, descriptionLabel.frame.size.height)];
+            }];
         }];
-    }];
+        
+        [self.operationQueue addOperation:textFormatBlock];
+    }
     
     NSBlockOperation *downloadImageBlock = [NSBlockOperation blockOperationWithBlock:^{
         
@@ -49,7 +54,6 @@
         }
     }];
     
-    [self.operationQueue addOperation:textFormatBlock];
     [self.operationQueue addOperation:downloadImageBlock];
 }
 
@@ -58,6 +62,14 @@
     // Do any additional setup after loading the view.
     
     self.operationQueue = [[NSOperationQueue alloc] init];
+    
+    //Nav Bar setup
+    UIBarButtonItem *backBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(dismissDetailView:)];
+    self.navigationItem.leftBarButtonItem = backBarButton;
+    SWCartBarButtonItem *cartBarButton = [[SWCartBarButtonItem alloc] initFromViewController:self];
+    SWLogoutBarButtonItem *logoutBarButton = [[SWLogoutBarButtonItem alloc] initFromViewController:self];
+    NSArray *rightButtonsArray = [NSArray arrayWithObjects:logoutBarButton, cartBarButton, nil];
+    [self.navigationItem setRightBarButtonItems:rightButtonsArray];
 }
 
 - (IBAction)stepperValueChanged:(UIStepper *)sender {

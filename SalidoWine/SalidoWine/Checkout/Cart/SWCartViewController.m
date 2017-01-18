@@ -32,12 +32,7 @@
 - (void)updateUI {
     
     [self.tableView reloadData];
-    
-    __block int counter = 0;
-    [self.shoppingCart.items enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        counter += [obj intValue];
-    }];
-    [self.totalItemsLabel setText:[NSString stringWithFormat:@"%d items", counter]];
+    [self.totalItemsLabel setText:[NSString stringWithFormat:@"%ld items", (long)self.shoppingCart.totalItems]];
     
     //Make completePurchaseButton inactive if cart is empty
     if (self.purchaseItemsArray.count == 0) {
@@ -67,6 +62,8 @@
     self.purchaseItemsArray = [[NSMutableArray alloc] init];
     self.imageCache = [[NSCache alloc] init];
     self.purchaseOperationQueue = [[NSOperationQueue alloc] init];
+    
+    //Table View setup
     [self.tableView registerClass:[SWCartTableViewCell class] forCellReuseIdentifier:@"CartTableViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"SWCartTableViewCell" bundle:nil] forCellReuseIdentifier:@"CartTableViewCell"];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -232,7 +229,8 @@
     
     SWProductDetailViewController *productDetailVC = [[SWProductDetailViewController alloc] initWithNibName:@"SWProductDetailViewController" bundle:nil];
     productDetailVC.product = product;
-    [self presentViewController:productDetailVC animated:YES completion:nil];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:productDetailVC];
+    [self presentViewController:navController animated:YES completion:nil];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

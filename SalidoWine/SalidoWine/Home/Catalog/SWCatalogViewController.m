@@ -169,7 +169,8 @@
     
     SWProductDetailViewController *productDetailVC = [[SWProductDetailViewController alloc] initWithNibName:@"SWProductDetailViewController" bundle:nil];
     productDetailVC.product = product;
-    [self presentViewController:productDetailVC animated:YES completion:nil];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:productDetailVC];
+    [self presentViewController:navController animated:YES completion:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
