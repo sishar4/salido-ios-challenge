@@ -59,11 +59,14 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L6X-kQ-n3s">
                     <rect key="frame" x="16" y="277" width="343" height="370"/>
                 </scrollView>
-                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="7Z8-mi-l8m">
+                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="7Z8-mi-l8m">
                     <rect key="frame" x="16" y="239" width="94" height="29"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="94" id="Ptq-7q-1wg"/>
                     </constraints>
+                    <connections>
+                        <action selector="stepperValueChanged:" destination="-1" eventType="valueChanged" id="L53-H6-g4Y"/>
+                    </connections>
                 </stepper>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="871-GX-PmJ">
                     <rect key="frame" x="238" y="239" width="121" height="30"/>
@@ -72,6 +75,9 @@
                     <state key="normal" title="Add to Cart">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="addToCartPressed:" destination="-1" eventType="touchUpInside" id="S0C-0O-c90"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONg-Z1-zaS">
                     <rect key="frame" x="118" y="239" width="112" height="29"/>

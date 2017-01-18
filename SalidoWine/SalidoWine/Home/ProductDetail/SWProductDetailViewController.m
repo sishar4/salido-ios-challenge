@@ -7,6 +7,7 @@
 //
 
 #import "SWProductDetailViewController.h"
+#import "SWCartDataController.h"
 
 @interface SWProductDetailViewController ()
 @property (strong, nonatomic) NSOperationQueue *operationQueue;
@@ -57,6 +58,28 @@
     // Do any additional setup after loading the view.
     
     self.operationQueue = [[NSOperationQueue alloc] init];
+}
+
+- (IBAction)stepperValueChanged:(UIStepper *)sender {
+    
+    NSUInteger value = sender.value;
+    [self.quantityLabel setText:[NSString stringWithFormat:@"%lu", (unsigned long)value]];
+}
+
+- (IBAction)addToCartPressed:(id)sender {
+    
+    SWCartDataController *dataController = [[SWCartDataController alloc] init];
+    dispatch_queue_t addItemQueue = dispatch_queue_create("com.salidowine.addfromdetail", DISPATCH_QUEUE_SERIAL);
+    
+    [dataController addItemToCart:self.product
+                     withQuantity:[self.quantityLabel.text integerValue]
+                            queue:addItemQueue
+             andCompletionHandler:^(BOOL success) {
+                 if (success) {
+                     NSLog(@"SUCCESSFULLY ADDED TO CART");
+                     [self.quantityLabel setText:@"1"];
+                 }
+             }];
 }
 
 - (IBAction)dismissDetailView:(id)sender {

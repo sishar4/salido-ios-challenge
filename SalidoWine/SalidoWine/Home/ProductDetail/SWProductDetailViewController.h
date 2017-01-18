@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIButton *addToCartButton;
 
+- (IBAction)stepperValueChanged:(UIStepper *)sender;
+- (IBAction)addToCartPressed:(id)sender;
 - (IBAction)dismissDetailView:(id)sender;
 
 @end
