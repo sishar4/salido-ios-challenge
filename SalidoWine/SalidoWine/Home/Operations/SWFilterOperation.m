@@ -70,9 +70,15 @@
                                   //Put arrays of products by winery into resultsArray
                                   NSDictionary *winery = [product valueForKey:@"Vineyard"];
                                   NSString *wineryName = [winery valueForKey:@"Name"];
-                                  [wineriesSet addObject:[wineryName lowercaseString]];
                                   
-                                  productToAdd.wineryName = [wineryName lowercaseString];
+                                  if (![wineryName isEqual:[NSNull null]]) {
+                                      [wineriesSet addObject:[wineryName lowercaseString]];
+                                      productToAdd.wineryName = [wineryName lowercaseString];
+                                  } else {
+                                      [wineriesSet addObject:@""];
+                                      productToAdd.wineryName = @"";
+                                  }
+                                  
                               }
                               
                               [resultsArray addObject:productToAdd];

@@ -17,6 +17,7 @@
     dispatch_once(&onceToken, ^{
         sharedInstance = [[self alloc] init];
         sharedInstance.productsArray = [[NSMutableArray alloc] init];
+        sharedInstance.wineriesSearchResults = [[NSMutableArray alloc] init];
     });
     
     return sharedInstance;

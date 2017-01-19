@@ -16,6 +16,7 @@
 @property (strong, nonatomic) NSString *wineryName;
 
 @property (strong, nonatomic) NSMutableArray *productsArray;
+@property (strong, nonatomic) NSMutableArray *wineriesSearchResults;
 
 + (id)sharedInstance;
 - (id)initWithName:(NSString *)name description:(NSString *)description andImageURL:(NSString *)imageURL;

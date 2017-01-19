@@ -56,8 +56,12 @@
     } else {
         //If not, reload collectionview with current list of products
         SWProduct *sharedObj = [SWProduct sharedInstance];
-        [self.productsArray removeAllObjects];
         [self.productsArray addObjectsFromArray:sharedObj.productsArray];
+        
+        if (sharedObj.wineriesSearchResults.count > 0) {
+            [self.wineriesArray addObjectsFromArray:sharedObj.wineriesSearchResults];
+        }
+        
         [self.collectionView reloadData];
     }
 }
@@ -210,7 +214,12 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 
-    SWProduct *product = (SWProduct *)[self.productsArray objectAtIndex:indexPath.row];
+    SWProduct *product;
+    if (self.wineriesArray.count > 0) {
+        product = (SWProduct *)[self.productsArray[indexPath.section] objectAtIndex:indexPath.row];
+    } else {
+        product = (SWProduct *)[self.productsArray objectAtIndex:indexPath.row];
+    }
     
     SWProductDetailViewController *productDetailVC = [[SWProductDetailViewController alloc] initWithNibName:@"SWProductDetailViewController" bundle:nil];
     productDetailVC.product = product;
@@ -238,9 +247,11 @@
                 //Update collectionview
                 SWProduct *sharedObj = [SWProduct sharedInstance];
                 [sharedObj.productsArray removeAllObjects];
+                [sharedObj.wineriesSearchResults removeAllObjects];
                 
                 if (byWinery) {
                     NSMutableArray *arr = [NSMutableArray arrayWithArray:[wineriesSet allObjects]];
+                    [sharedObj.wineriesSearchResults addObjectsFromArray:arr];
                     [self.wineriesArray addObjectsFromArray:arr];
                     
                     for (NSString *winery in self.wineriesArray) {

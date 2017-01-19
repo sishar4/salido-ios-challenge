@@ -25,8 +25,9 @@
 
 - (void)goToLogin {
     
-    //Reset flag for catalog download having been completed
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"downloadCompleted"];
+    //Reset app flags
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"downloadCompleted"];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"searchParams"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     //Load Authentication.storyboard
