@@ -10,6 +10,18 @@
 
 @implementation SWProduct
 
++ (id)sharedInstance
+{
+    static SWProduct *sharedInstance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [[self alloc] init];
+        sharedInstance.productsArray = [[NSMutableArray alloc] init];
+    });
+    
+    return sharedInstance;
+}
+
 - (id)initWithName:(NSString *)name description:(NSString *)description andImageURL:(NSString *)imageURL {
     
     self = [super init];

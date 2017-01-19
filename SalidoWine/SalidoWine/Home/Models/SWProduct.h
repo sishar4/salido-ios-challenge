@@ -14,6 +14,9 @@
 @property (strong, nonatomic) NSString *productDescription;
 @property (strong, nonatomic) NSString *imageURL;
 
+@property (strong, nonatomic) NSMutableArray *productsArray;
+
++ (id)sharedInstance;
 - (id)initWithName:(NSString *)name description:(NSString *)description andImageURL:(NSString *)imageURL;
 
 @end

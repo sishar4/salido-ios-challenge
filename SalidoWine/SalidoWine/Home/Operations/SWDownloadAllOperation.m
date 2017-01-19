@@ -64,6 +64,9 @@
                                                   [resultsArray addObject:productToAdd];
                                               }
                                               
+                                              [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"downloadCompleted"];
+                                              [[NSUserDefaults standardUserDefaults] synchronize];
+                                              
                                               self.completionHandler([resultsArray copy], YES);
                                           }
                                           else {

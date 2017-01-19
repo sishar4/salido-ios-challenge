@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SWFilterListViewController.h"
 
-@interface SWCatalogViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface SWCatalogViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, SWFilterCatalogProtocol>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @end

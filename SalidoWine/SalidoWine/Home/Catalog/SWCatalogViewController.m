@@ -10,7 +10,10 @@
 #import "SWCartBarButtonItem.h"
 #import "SWLogoutBarButtonItem.h"
 #import "SWDownloadAllOperation.h"
+#import "SWDownloadCategoriesOperation.h"
+#import "SWFilterOperation.h"
 #import "SWProduct.h"
+#import "SWProductCategories.h"
 #import "SWAlertHelper.h"
 #import "SWCatalogCollectionViewCell.h"
 #import "SWProductDetailViewController.h"
@@ -26,17 +29,6 @@
 @end
 
 @implementation SWCatalogViewController
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    
-//    //Check if download operation has not been completed yet since login
-//    BOOL alreadyDownloaded = [[NSUserDefaults standardUserDefaults] boolForKey:@"downloadCompleted"];
-//    if (!alreadyDownloaded) {
-//        [self displayLoadingIndicator];
-//        [self downloadWineList];
-//    }
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -55,7 +47,17 @@
     self.navigationItem.rightBarButtonItem = logoutBarButton;
     
     self.hostReachable = [Reachability reachabilityWithHostName:@"www.apple.com"];
-    [self startDownload];
+    //Check if download operation has not been completed yet since login
+    BOOL alreadyDownloaded = [[NSUserDefaults standardUserDefaults] boolForKey:@"downloadCompleted"];
+    if (!alreadyDownloaded) {
+        [self startDownload];
+    } else {
+        //If so, reload collectionview with current list of products
+        SWProduct *sharedObj = [SWProduct sharedInstance];
+        [self.productsArray removeAllObjects];
+        [self.productsArray addObjectsFromArray:sharedObj.productsArray];
+        [self.collectionView reloadData];
+    }
 }
 
 - (void)displayLoadingIndicator {
@@ -75,6 +77,7 @@
     if ([self.hostReachable currentReachabilityStatus] != NotReachable) {
         [self displayLoadingIndicator];
         [self downloadWineList];
+        [self downloadCategories];
     } else {
         //If not, display alert that download failed, give option to retry
         [SWAlertHelper presentAlertFromViewController:self
@@ -96,6 +99,9 @@
             [_spinner stopAnimating];
             
             if (success && results.count > 0) {
+                SWProduct *sharedObj = [SWProduct sharedInstance];
+                [sharedObj.productsArray removeAllObjects];
+                [sharedObj.productsArray addObjectsFromArray:results];
                 [self.productsArray removeAllObjects];
                 [self.productsArray addObjectsFromArray:results];
                 [self.collectionView reloadData];
@@ -113,6 +119,32 @@
     }];
     
     [self.catalogOperationQueue addOperation:downloadOperation];
+}
+
+- (void)downloadCategories {
+    
+    SWDownloadCategoriesOperation *downloadCategoriesOperation = [[SWDownloadCategoriesOperation alloc] initWithCompletionHandler:^(NSArray *results, BOOL success) {
+        
+        if (success && results.count > 0) {
+            //Store categories for use in Filter VC
+            SWProductCategories *sharedObj = [SWProductCategories sharedInstance];
+            [sharedObj.categoriesArray removeAllObjects];
+            [sharedObj.categoriesArray addObjectsFromArray:results];
+        } else {
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                //Display alert that download failed, give option to retry
+                [SWAlertHelper presentAlertFromViewController:self
+                                                    withTitle:@"Download Failed"
+                                                      message:@"Unable to retrieve categories. Would you like to try again?"
+                                                   andOkBlock:^{
+                                                       //Download categories once more
+                                                       [self downloadCategories];
+                                                   }];
+            }];
+        }
+    }];
+    
+    [self.catalogOperationQueue addOperation:downloadCategoriesOperation];
 }
 
 #pragma mark - UICollectionView Delegate
@@ -171,6 +203,62 @@
     productDetailVC.product = product;
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:productDetailVC];
     [self presentViewController:navController animated:YES completion:nil];
+}
+
+#pragma SWFilterCatalogProtocol
+
+- (void)filterCatalogWithNameQuery:(NSArray *)nameQuery categoryFilter:(NSArray *)categoryFilter andByWinery:(BOOL)sortByWinery {
+    
+    //Check to see if network connection available
+    if ([self.hostReachable currentReachabilityStatus] != NotReachable) {
+        
+        [self displayLoadingIndicator];
+        //Call FilterOperation
+        SWFilterOperation *filterOperation = [[SWFilterOperation alloc] initWithNameQuery:nameQuery categoryFilter:categoryFilter byWinery:sortByWinery andCompletionHandler:^(NSArray *results, BOOL success) {
+            
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                [self.spinner stopAnimating];
+                
+                if (success && results.count > 0) {
+                    //Update collectionview
+                    SWProduct *sharedObj = [SWProduct sharedInstance];
+                    [sharedObj.productsArray removeAllObjects];
+                    [sharedObj.productsArray addObjectsFromArray:results];
+                    
+                    [self.productsArray addObjectsFromArray:results];
+                    [self.collectionView reloadData];
+                } else if (success && results.count == 0) {
+                    //Display alert that download returned no results, give option to retry
+                    [SWAlertHelper presentAlertFromViewController:self
+                                                        withTitle:@"No Result"
+                                                       andMessage:@"Your search returned no results. Please try again with a  different filter."];
+                } else {
+                    //Display alert that download failed
+                    [SWAlertHelper presentAlertFromViewController:self
+                                                        withTitle:@"Download Failed"
+                                                       andMessage:@"Your search was unable to be completed. Please try again."];
+                }
+            }];
+        }];
+        
+        [self.catalogOperationQueue addOperation:filterOperation];
+        
+        [self.productsArray removeAllObjects];
+        [self.collectionView reloadData];
+    } else {
+        //If not, display alert that download failed, give option to retry
+        [SWAlertHelper presentAlertFromViewController:self
+                                            withTitle:@"No Connection"
+                                           andMessage:@"Unable to download. Please try again."];
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([[segue identifier] isEqualToString:@"showFilter"]) {
+        SWFilterListViewController *filterVC = (SWFilterListViewController *)segue.destinationViewController;
+        filterVC.delegate = self;
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
