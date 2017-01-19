@@ -64,6 +64,7 @@
                                                   [resultsArray addObject:productToAdd];
                                               }
                                               
+                                              //App flag which Catalog VC uses to determine if it needs to call this operation again
                                               [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"downloadCompleted"];
                                               [[NSUserDefaults standardUserDefaults] synchronize];
                                               

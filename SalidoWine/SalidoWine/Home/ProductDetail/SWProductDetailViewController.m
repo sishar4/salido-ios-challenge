@@ -30,29 +30,18 @@
             
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                 
-                UILabel *descriptionLabel = [[UILabel alloc] initWithFrame:self.scrollView.bounds];
-                [descriptionLabel setNumberOfLines:0];
-                [descriptionLabel setText:[descriptionString string]];
-                [descriptionLabel sizeToFit];
-                [self.scrollView addSubview:descriptionLabel];
-                [self.scrollView setContentSize:CGSizeMake(self.scrollView.bounds.size.width, descriptionLabel.frame.size.height)];
+                [self addLabelOnScrollViewWithText:[descriptionString string]];
             }];
         }];
         
         [self.operationQueue addOperation:textFormatBlock];
     } else {
-        UILabel *emptyDescriptionLabel = [[UILabel alloc] initWithFrame:self.scrollView.bounds];
-        [emptyDescriptionLabel setNumberOfLines:0];
-        [emptyDescriptionLabel setText:@"No product description available at this time."];
-        [emptyDescriptionLabel sizeToFit];
-        [self.scrollView addSubview:emptyDescriptionLabel];
-        [self.scrollView setContentSize:CGSizeMake(self.scrollView.bounds.size.width, emptyDescriptionLabel.frame.size.height)];
+        [self addLabelOnScrollViewWithText:@"No product description available at this time."];
     }
     
     NSBlockOperation *downloadImageBlock = [NSBlockOperation blockOperationWithBlock:^{
         
         UIImage * img = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.product.imageURL]]];
-        
         if (img) {
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                 
@@ -62,6 +51,16 @@
     }];
     
     [self.operationQueue addOperation:downloadImageBlock];
+}
+
+- (void)addLabelOnScrollViewWithText:(NSString *)text {
+    
+    UILabel *descriptionLabel = [[UILabel alloc] initWithFrame:self.scrollView.bounds];
+    [descriptionLabel setNumberOfLines:0];
+    [descriptionLabel setText:text];
+    [descriptionLabel sizeToFit];
+    [self.scrollView addSubview:descriptionLabel];
+    [self.scrollView setContentSize:CGSizeMake(self.scrollView.bounds.size.width, descriptionLabel.frame.size.height)];
 }
 
 - (void)viewDidLoad {

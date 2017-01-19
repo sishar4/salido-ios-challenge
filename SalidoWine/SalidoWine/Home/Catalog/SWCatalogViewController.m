@@ -43,6 +43,7 @@
     UINib *cellNib = [UINib nibWithNibName:@"SWCatalogCollectionViewCell" bundle:nil];
     [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:@"catalogCollectionCell"];
     
+    //Nav bar setup
     SWCartBarButtonItem *cartBarButton = [[SWCartBarButtonItem alloc] initFromViewController:self];
     self.navigationItem.leftBarButtonItem = cartBarButton;
     SWLogoutBarButtonItem *logoutBarButton = [[SWLogoutBarButtonItem alloc] initFromViewController:self];
@@ -221,6 +222,7 @@
         product = (SWProduct *)[self.productsArray objectAtIndex:indexPath.row];
     }
     
+    //Go to ProductDetailVC with selected product
     SWProductDetailViewController *productDetailVC = [[SWProductDetailViewController alloc] initWithNibName:@"SWProductDetailViewController" bundle:nil];
     productDetailVC.product = product;
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:productDetailVC];
@@ -246,21 +248,30 @@
             if (success && results.count > 0) {
                 //Update collectionview
                 SWProduct *sharedObj = [SWProduct sharedInstance];
-                [sharedObj.productsArray removeAllObjects];
-                [sharedObj.wineriesSearchResults removeAllObjects];
                 
                 if (byWinery) {
                     NSMutableArray *arr = [NSMutableArray arrayWithArray:[wineriesSet allObjects]];
                     [sharedObj.wineriesSearchResults addObjectsFromArray:arr];
                     [self.wineriesArray addObjectsFromArray:arr];
                     
+                    //To keep track of indexes already sorted so we can remove from the array
+                    NSMutableIndexSet *indexes = [NSMutableIndexSet new];
+                    //To use in iterating so we can remove from it after each time through
+                    NSMutableArray *mutableResultsArray = [[NSMutableArray alloc] initWithArray:results];
                     for (NSString *winery in self.wineriesArray) {
                         NSMutableArray *tempResults = [[NSMutableArray alloc] init];
-                        for (SWProduct *product in results) {
+                        for (int i = 0; i < mutableResultsArray.count; i++) {
+                            SWProduct *product = [mutableResultsArray objectAtIndex:i];
                             if ([product.wineryName isEqualToString:winery]) {
                                 [tempResults addObject:product];
+                                [indexes addIndex:i];
                             }
                         }
+                        //Remove from array
+                        [mutableResultsArray removeObjectsAtIndexes:indexes];
+                        //Empty indexes array
+                        [indexes removeAllIndexes];
+                        //Store products in data arrays
                         [sharedObj.productsArray addObject:tempResults];
                         [self.productsArray addObject:tempResults];
                     }
@@ -294,6 +305,10 @@
         
         [self.catalogOperationQueue addOperation:filterOperation];
         
+        //Empty all stored data of products
+        SWProduct *sharedObj = [SWProduct sharedInstance];
+        [sharedObj.productsArray removeAllObjects];
+        [sharedObj.wineriesSearchResults removeAllObjects];
         [self.productsArray removeAllObjects];
         [self.wineriesArray removeAllObjects];
         [self.collectionView reloadData];

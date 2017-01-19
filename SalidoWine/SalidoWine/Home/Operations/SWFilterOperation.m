@@ -65,14 +65,16 @@
                               SWProduct *productToAdd = [[SWProduct alloc] initWithName:name
                                                                             description:description
                                                                             andImageURL:imageURL];
-                              
+                              //If we are filtering by winery
                               if (self.filterByWinery) {
                                   //Put arrays of products by winery into resultsArray
                                   NSDictionary *winery = [product valueForKey:@"Vineyard"];
                                   NSString *wineryName = [winery valueForKey:@"Name"];
-                                  
+                                  //If product has a winery
                                   if (![wineryName isEqual:[NSNull null]]) {
+                                      //Add wineries to set to send in completion handler
                                       [wineriesSet addObject:[wineryName lowercaseString]];
+                                      //Set winery on product to help with filtering in Catalog VC
                                       productToAdd.wineryName = [wineryName lowercaseString];
                                   } else {
                                       [wineriesSet addObject:@""];

@@ -15,6 +15,7 @@
 @property (strong, nonatomic) NSString *imageURL;
 @property (strong, nonatomic) NSString *wineryName;
 
+//Use these two arrays to repopulate Catalog VC when coming back from the Cart VC
 @property (strong, nonatomic) NSMutableArray *productsArray;
 @property (strong, nonatomic) NSMutableArray *wineriesSearchResults;
 

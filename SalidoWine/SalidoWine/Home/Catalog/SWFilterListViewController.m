@@ -29,8 +29,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    //Check if there is a previously used filter, and apply it
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"searchParams"]) {
-        //Else, check if there is a previous filter, and apply it
         NSDictionary *searchDict = [[NSUserDefaults standardUserDefaults] objectForKey:@"searchParams"];
         NSString *namesString = [searchDict objectForKey:@"name"];
         NSArray *categoryArray = [searchDict objectForKey:@"category"];
@@ -57,6 +57,7 @@
     self.categoriesArray = [[NSMutableArray alloc] initWithArray:sharedObj.categoriesArray];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
+    //Nav bar setup
     SWCartBarButtonItem *cartBarButton = [[SWCartBarButtonItem alloc] initFromViewController:self];
     SWLogoutBarButtonItem *logoutBarButton = [[SWLogoutBarButtonItem alloc] initFromViewController:self];
     NSArray *rightButtonsArray = [NSArray arrayWithObjects:logoutBarButton, cartBarButton, nil];
@@ -71,7 +72,7 @@
 }
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    
+    //Only allow alphabet characters in name textfield
     NSCharacterSet *blockedCharacters = [[NSCharacterSet whitespaceCharacterSet] invertedSet];
     NSCharacterSet *blockedCharacters2 = [[NSCharacterSet letterCharacterSet] invertedSet];
 
@@ -102,6 +103,7 @@
     NSDictionary *categoryDict = [self.categoriesArray objectAtIndex:indexPath.row];
     [cell.textLabel setText:[categoryDict valueForKey:@"Name"]];
     
+    //If category (by Id) is in local selected categories array, add checkmark
     NSString *categoryId = [[categoryDict valueForKey:@"Id"] stringValue];
     if ([self.categoryFilterQueryArray containsObject:categoryId]) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
@@ -119,24 +121,17 @@
     NSDictionary *categoryDict = [self.categoriesArray objectAtIndex:indexPath.row];
     NSString *categoryId = [[categoryDict valueForKey:@"Id"] stringValue];
     
+    //If category (by Id) is in local selected categories array, remove checkmark
     if ([self.categoryFilterQueryArray containsObject:categoryId]) {
         [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
         //Remove category id to categoryFilterArray
         [self.categoryFilterQueryArray removeObject:categoryId];
     } else {
+        //Else, add checkmark
         [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
         //Add category id to categoryFilterArray
         [self.categoryFilterQueryArray addObject:categoryId];
     }
-//    if([tableView cellForRowAtIndexPath:indexPath].accessoryType == UITableViewCellAccessoryCheckmark){
-//        [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
-//        //Remove category id to categoryFilterArray
-//        [self.categoryFilterQueryArray removeObject:categoryId];
-//    }else{
-//        [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
-//        //Add category id to categoryFilterArray
-//        [self.categoryFilterQueryArray addObject:categoryId];
-//    }
 }
 
 - (BOOL)filterFieldsNotChanged {
@@ -176,6 +171,7 @@
             [searchParams setObject:self.categoryFilterQueryArray forKey:@"category"];
         }
         
+        //Store search params to use to reset this VC when coming back from Cart VC
         [searchParams setObject:[NSNumber numberWithBool:[self.winerySwitch isOn]] forKey:@"winery"];
         [[NSUserDefaults standardUserDefaults] setObject:searchParams forKey:@"searchParams"];
         [[NSUserDefaults standardUserDefaults] synchronize];

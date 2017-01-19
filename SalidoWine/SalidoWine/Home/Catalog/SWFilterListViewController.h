@@ -11,7 +11,6 @@
 @protocol SWFilterCatalogProtocol <NSObject>
 
 - (void)filterCatalogWithNameQuery:(NSArray *)nameQuery categoryFilter:(NSArray *)categoryFilter andByWinery:(BOOL)sortByWinery;
-
 @end
 
 @interface SWFilterListViewController : UIViewController <UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>

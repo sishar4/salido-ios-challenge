@@ -23,7 +23,7 @@
             //Set as new value
             [cart.items setObject:[NSNumber numberWithInteger:numInCart] forKey:product.name];
         } else {
-            //Add item to cart with quantity as {itemName: quantity}
+            //Add item to cart with quantity as {product.name: quantity}
             [cart.items setObject:[NSNumber numberWithInteger:quantity] forKey:product.name];
             [cart.itemsArray addObject:product];
         }
