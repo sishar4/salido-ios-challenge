@@ -258,19 +258,26 @@
                     NSMutableIndexSet *indexes = [NSMutableIndexSet new];
                     //To use in iterating so we can remove from it after each time through
                     NSMutableArray *mutableResultsArray = [[NSMutableArray alloc] initWithArray:results];
-                    for (NSString *winery in self.wineriesArray) {
+                    for (int i = 0; i < self.wineriesArray.count; i++) {
+                        NSString *winery = [self.wineriesArray objectAtIndex:i];
                         NSMutableArray *tempResults = [[NSMutableArray alloc] init];
-                        for (int i = 0; i < mutableResultsArray.count; i++) {
-                            SWProduct *product = [mutableResultsArray objectAtIndex:i];
-                            if ([product.wineryName isEqualToString:winery]) {
-                                [tempResults addObject:product];
-                                [indexes addIndex:i];
+                        //Check if last winery name, then just add remaining items without iterating over array
+                        if (i == self.wineriesArray.count - 1) {
+                            [tempResults addObjectsFromArray:mutableResultsArray];
+                        } else {
+                            for (int j = 0; j < mutableResultsArray.count; j++) {
+                                SWProduct *product = [mutableResultsArray objectAtIndex:j];
+                                if ([product.wineryName isEqualToString:winery]) {
+                                    [tempResults addObject:product];
+                                    [indexes addIndex:j];
+                                }
                             }
+                            //Remove from array
+                            [mutableResultsArray removeObjectsAtIndexes:indexes];
+                            //Empty indexes array
+                            [indexes removeAllIndexes];
                         }
-                        //Remove from array
-                        [mutableResultsArray removeObjectsAtIndexes:indexes];
-                        //Empty indexes array
-                        [indexes removeAllIndexes];
+                        
                         //Store products in data arrays
                         [sharedObj.productsArray addObject:tempResults];
                         [self.productsArray addObject:tempResults];
