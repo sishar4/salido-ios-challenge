@@ -40,6 +40,13 @@
         }];
         
         [self.operationQueue addOperation:textFormatBlock];
+    } else {
+        UILabel *emptyDescriptionLabel = [[UILabel alloc] initWithFrame:self.scrollView.bounds];
+        [emptyDescriptionLabel setNumberOfLines:0];
+        [emptyDescriptionLabel setText:@"No product description available at this time."];
+        [emptyDescriptionLabel sizeToFit];
+        [self.scrollView addSubview:emptyDescriptionLabel];
+        [self.scrollView setContentSize:CGSizeMake(self.scrollView.bounds.size.width, emptyDescriptionLabel.frame.size.height)];
     }
     
     NSBlockOperation *downloadImageBlock = [NSBlockOperation blockOperationWithBlock:^{

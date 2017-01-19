@@ -23,6 +23,7 @@
 
 @property (strong, nonatomic) Reachability *hostReachable;
 @property (strong, nonatomic) NSMutableArray *productsArray;
+@property (strong, nonatomic) NSMutableArray *wineriesArray; //If filtering by winery, this will be populated
 @property (strong, nonatomic) NSOperationQueue *catalogOperationQueue;
 @property (nonatomic, strong) UIActivityIndicatorView *spinner;
 @property (nonatomic, strong) NSCache *imageCache;
@@ -36,6 +37,7 @@
     
     self.catalogOperationQueue = [[NSOperationQueue alloc] init];
     self.productsArray = [[NSMutableArray alloc] init];
+    self.wineriesArray = [[NSMutableArray alloc] init];
     self.imageCache = [[NSCache alloc] init];
     [self.collectionView registerClass:[SWCatalogCollectionViewCell class] forCellWithReuseIdentifier:@"catalogCollectionCell"];
     UINib *cellNib = [UINib nibWithNibName:@"SWCatalogCollectionViewCell" bundle:nil];
@@ -151,11 +153,17 @@
 
 - (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
     
+    if (self.wineriesArray.count > 0) {
+        return self.wineriesArray.count;
+    }
     return 1;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
+    if (self.wineriesArray.count > 0) {
+        return [[self.productsArray objectAtIndex:section] count];
+    }
     return self.productsArray.count;
 }
 
@@ -165,10 +173,15 @@
     
     SWCatalogCollectionViewCell *cell = (SWCatalogCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:catalogCellIdentifier forIndexPath:indexPath];
     
-    SWProduct *product = (SWProduct *)[self.productsArray objectAtIndex:indexPath.row];
+    SWProduct *product;
+    if (self.wineriesArray.count > 0) {
+        product = (SWProduct *)[self.productsArray[indexPath.section] objectAtIndex:indexPath.row];
+    } else {
+        product = (SWProduct *)[self.productsArray objectAtIndex:indexPath.row];
+    }
+    
     [cell.nameLabel setText:product.name];
     [cell setProduct:product];
-    
     cell.imageView.image = nil;
     
     //Check if product image was previously cached
@@ -219,39 +232,59 @@
         
         [self displayLoadingIndicator];
         //Call FilterOperation
-        SWFilterOperation *filterOperation = [[SWFilterOperation alloc] initWithNameQuery:names
-                                                                           categoryFilter:categories
-                                                                                 byWinery:byWinery
-                                                                     andCompletionHandler:^(NSArray *results, BOOL success) {
+        SWFilterOperation *filterOperation = [[SWFilterOperation alloc] initWithNameQuery:names categoryFilter:categories byWinery:byWinery andCompletionHandler:^(NSArray *results, NSSet *wineriesSet, BOOL success) {
             
-            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                [self.spinner stopAnimating];
+            if (success && results.count > 0) {
+                //Update collectionview
+                SWProduct *sharedObj = [SWProduct sharedInstance];
+                [sharedObj.productsArray removeAllObjects];
                 
-                if (success && results.count > 0) {
-                    //Update collectionview
-                    SWProduct *sharedObj = [SWProduct sharedInstance];
-                    [sharedObj.productsArray removeAllObjects];
-                    [sharedObj.productsArray addObjectsFromArray:results];
+                if (byWinery) {
+                    NSMutableArray *arr = [NSMutableArray arrayWithArray:[wineriesSet allObjects]];
+                    [self.wineriesArray addObjectsFromArray:arr];
                     
+                    for (NSString *winery in self.wineriesArray) {
+                        NSMutableArray *tempResults = [[NSMutableArray alloc] init];
+                        for (SWProduct *product in results) {
+                            if ([product.wineryName isEqualToString:winery]) {
+                                [tempResults addObject:product];
+                            }
+                        }
+                        [sharedObj.productsArray addObject:tempResults];
+                        [self.productsArray addObject:tempResults];
+                    }
+                } else {
+                    [sharedObj.productsArray addObjectsFromArray:results];
                     [self.productsArray addObjectsFromArray:results];
+                }
+                
+                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                    [self.spinner stopAnimating];
                     [self.collectionView reloadData];
-                } else if (success && results.count == 0) {
+                }];
+            } else if (success && results.count == 0) {
+                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                    [self.spinner stopAnimating];
                     //Display alert that download returned no results, give option to retry
                     [SWAlertHelper presentAlertFromViewController:self
                                                         withTitle:@"No Result"
                                                        andMessage:@"Your search returned no results. Please try again with a  different filter."];
-                } else {
+                }];
+            } else {
+                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                    [self.spinner stopAnimating];
                     //Display alert that download failed
                     [SWAlertHelper presentAlertFromViewController:self
                                                         withTitle:@"Download Failed"
                                                        andMessage:@"Your search was unable to be completed. Please try again."];
-                }
-            }];
+                }];
+            }
         }];
         
         [self.catalogOperationQueue addOperation:filterOperation];
         
         [self.productsArray removeAllObjects];
+        [self.wineriesArray removeAllObjects];
         [self.collectionView reloadData];
     } else {
         //If not, display alert that download failed, give option to retry

@@ -13,6 +13,7 @@
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *productDescription;
 @property (strong, nonatomic) NSString *imageURL;
+@property (strong, nonatomic) NSString *wineryName;
 
 @property (strong, nonatomic) NSMutableArray *productsArray;
 

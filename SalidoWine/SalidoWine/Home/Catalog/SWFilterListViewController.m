@@ -15,7 +15,7 @@
 @interface SWFilterListViewController ()
 
 @property (strong, nonatomic) Reachability *hostReachable;
-@property (strong, nonatomic) NSMutableArray *categoryFilterQueryArray;
+@property (strong, nonatomic) NSMutableArray *categoryFilterQueryArray; //Stores selected categories from tableview
 @property (strong, nonatomic) NSMutableArray *categoriesArray;
 
 //Previous filter values to compare against

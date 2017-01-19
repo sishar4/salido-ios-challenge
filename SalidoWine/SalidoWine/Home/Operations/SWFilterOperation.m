@@ -12,7 +12,7 @@
 
 @implementation SWFilterOperation
 
-- (id)initWithNameQuery:(NSArray *)nameQuery categoryFilter:(NSArray *)categoryFilter byWinery:(BOOL)byWinery andCompletionHandler:(void (^)(NSArray *, BOOL))completionHandler {
+- (id)initWithNameQuery:(NSArray *)nameQuery categoryFilter:(NSArray *)categoryFilter byWinery:(BOOL)byWinery andCompletionHandler:(void (^)(NSArray *, NSSet *, BOOL))completionHandler {
     
     self = [super init];
     if (self) {
@@ -55,6 +55,7 @@
                           NSDictionary *list = [products valueForKey:@"List"];
                           
                           NSMutableArray *resultsArray = [[NSMutableArray alloc] init];
+                          NSMutableSet *wineriesSet = [[NSMutableSet alloc] init];
                           for (NSDictionary *product in list) {
                               NSString *name = [product valueForKey:@"Name"];
                               NSString *description = [product valueForKey:@"Description"];
@@ -64,13 +65,23 @@
                               SWProduct *productToAdd = [[SWProduct alloc] initWithName:name
                                                                             description:description
                                                                             andImageURL:imageURL];
+                              
+                              if (self.filterByWinery) {
+                                  //Put arrays of products by winery into resultsArray
+                                  NSDictionary *winery = [product valueForKey:@"Vineyard"];
+                                  NSString *wineryName = [winery valueForKey:@"Name"];
+                                  [wineriesSet addObject:[wineryName lowercaseString]];
+                                  
+                                  productToAdd.wineryName = [wineryName lowercaseString];
+                              }
+                              
                               [resultsArray addObject:productToAdd];
                           }
                           
-                          self.completionHandler([resultsArray copy], YES);
+                          self.completionHandler([resultsArray copy], [wineriesSet copy], YES);
                       }
                       else {
-                          self.completionHandler(nil, NO);
+                          self.completionHandler(nil, nil, NO);
                       }
                   }];
     
