@@ -1,0 +1,6 @@
+For authentication, I downloaded and used the KeychainWrapper class so that I could store the pin used in Registration and use it to authenticate against on Login. I wouldn’t store user data on the device usually, but in this case I used it to mimic an authentication service.
+
+For data storage, there wasn’t enough data coming back to need CoreData. So between options like plists and Singletons, I just chose to use Singletons for the ease of use in this scenario. The api calls, plus the login, register, and purchase functionalities were put in custom NSOperations. For adding and removing to the cart I made some pretend calls using gcd, but for purchasing I wrapped one of them in an operation because I wanted a dependency with the login operation for re-authentication on checking out the cart. But just adding and removing to the cart don’t really need to be in an operation. It makes more sense to update the local representation of the cart and then fire off an update call to the backend.
+
+And for the UI, I used storyboards to separate the different ‘modules’ of the app when I could. But because of the requirements for the cart and product detail page to be accessible in several/all areas of the app, I needed to use xib’s for them.
+
