@@ -19,6 +19,7 @@
     // Override point for customization after application launch.
     
     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"downloadCompleted"];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"searchParams"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     return YES;

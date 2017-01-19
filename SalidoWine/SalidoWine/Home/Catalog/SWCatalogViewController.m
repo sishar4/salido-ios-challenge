@@ -52,7 +52,7 @@
     if (!alreadyDownloaded) {
         [self startDownload];
     } else {
-        //If so, reload collectionview with current list of products
+        //If not, reload collectionview with current list of products
         SWProduct *sharedObj = [SWProduct sharedInstance];
         [self.productsArray removeAllObjects];
         [self.productsArray addObjectsFromArray:sharedObj.productsArray];
@@ -209,12 +209,20 @@
 
 - (void)filterCatalogWithNameQuery:(NSArray *)nameQuery categoryFilter:(NSArray *)categoryFilter andByWinery:(BOOL)sortByWinery {
     
+    [self filterWithNames:nameQuery categories:categoryFilter andByWinery:sortByWinery];
+}
+
+- (void)filterWithNames:(NSArray *)names categories:(NSArray *)categories andByWinery:(BOOL)byWinery {
+    
     //Check to see if network connection available
     if ([self.hostReachable currentReachabilityStatus] != NotReachable) {
         
         [self displayLoadingIndicator];
         //Call FilterOperation
-        SWFilterOperation *filterOperation = [[SWFilterOperation alloc] initWithNameQuery:nameQuery categoryFilter:categoryFilter byWinery:sortByWinery andCompletionHandler:^(NSArray *results, BOOL success) {
+        SWFilterOperation *filterOperation = [[SWFilterOperation alloc] initWithNameQuery:names
+                                                                           categoryFilter:categories
+                                                                                 byWinery:byWinery
+                                                                     andCompletionHandler:^(NSArray *results, BOOL success) {
             
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                 [self.spinner stopAnimating];
